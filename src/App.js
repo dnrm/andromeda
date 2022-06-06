@@ -1,29 +1,36 @@
-import "./App.css";
-import Navigation from "./components/Navigation";
+import Hero from "./components/Hero";
+import Product from "./components/Product";
 
 function App() {
   return (
-    <div className="bg-white">
-      <Navigation />
-      <div className="flex justify-center items-center gap-8 py-16 pb-16 p-8">
-        <div className="heading">
-          <h1 className="uppercase text-5xl md:text-7xl xl:text-10xl tracking-tighter leading-squash font-sono">
-            Andromeda Roasters
-          </h1>
+    <div className="bg-snow">
+      <Hero />
+      <div className="image w-screen grid grid-cols-1 md:grid-cols-2 h-[90vh]">
+        <div className="text text-black font-inter px-8 pt-20 pb-10 bg-snow col-span-1 flex flex-col justify-between items-start h-full">
+          <div className="main">
+            <h2 className="text-4xl md:text-5xl xl:text-7xl font-tan-nimbus text-aqua font-bold tracking-tighter leading-squash">
+              Who are we?
+            </h2>
+            <p className="font-space-grotesk text-md">
+              We are a small coffee roasting company based in Seattle,
+              Washington. We strive to create the perfect cup of coffee, using
+              only the finest beans and roasting them to perfection. Our coffee
+              is roasted in small batches to ensure quality and freshness. We
+              hope you enjoy our coffee as much as we enjoy making it!
+            </p>
+          </div>
+          <div className="cta-button">
+            <button className="bg-davys hover:bg-gray-800 px-12 py-4 mt-4">
+              <p className="text-snow font-space-grotesk text-lg">Learn More</p>
+            </button>
+          </div>
         </div>
-        <div className="coffee-bean-image md:ml-10">
-          <img src="/coffee-bean.png" alt="" />
+        <div className="image h-full w-full">
+          <img src="/roaster.jpeg" className="h-full object-cover" alt="" />
         </div>
       </div>
-      <div className="image w-screen">
-        <div className="text absolute z-10 text-white font-inter px-8 py-20 bg-[url('../public/roaster.jpeg')] backdrop-blur-md w-full">
-          <h2 className="text-4xl md:text-5xl xl:text-6xl font-medium tracking-tighter leading-squash">
-            Who are we?
-          </h2>
-          <p className="pt-4 text-xl">
-            We are a coffee roaster company that specializes in the best flavour profiles and the best coffee quality.
-          </p>
-        </div>
+      <div className="products grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Product />
       </div>
     </div>
   );
