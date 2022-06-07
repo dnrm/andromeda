@@ -26,11 +26,22 @@ function App() {
           </div>
         </div>
         <div className="image h-full w-full">
-          <img src="/roaster.jpeg" className="h-full object-cover" alt="" />
+          <img
+            src="/roaster.jpeg"
+            className="h-full object-cover rounded-t-full p-5"
+            alt=""
+          />
         </div>
       </div>
-      <div className="products grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Product />
+      <hr />
+      <div className="product-section px-8 py-10">
+        <div className="heading">
+          <h1 className="text-6xl md:text-7xl xl:text-8xl font-tan-nimbus py-8">Coffee</h1>
+        </div>
+        <div className="products grid grid-cols-1 md:grid-cols-2 gap-4">
+          <Product title="Kepler Blend" />
+          <Product title="Mercury Single Origin" />
+        </div>
       </div>
     </div>
   );
