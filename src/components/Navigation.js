@@ -2,9 +2,9 @@ import React from "react";
 
 const Navigation = () => {
   return (
-    <div className="flex justify-between items-center tracking-tighter bg-davys p-3 text-snow font-space-grotesk px-16 z-50">
+    <div className="absolute w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk px-16 z-50 bg-opacity-70">
       <div className="home">
-        <p className="text-2xl">Home</p>
+        <p className="text-2xl font-tan-nimbus">Home</p>
       </div>
       <div className="links flex justify-center items-center gap-5 invisible sm:visible text-sm">
         <p>About</p>

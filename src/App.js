@@ -4,7 +4,7 @@ import Product from "./components/Product";
 function App() {
   return (
     <div className="bg-snow">
-      <Hero />
+      <Hero video={true} />
       <div className="image w-screen grid grid-cols-1 md:grid-cols-2 h-[90vh]">
         <div className="text text-black font-inter px-8 pt-20 pb-10 bg-snow col-span-1 flex flex-col justify-between items-start h-full">
           <div className="main">
