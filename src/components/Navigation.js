@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const Navigation = () => {
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = () => {
+    // find current scroll position
+    const currentScrollPos = window.pageYOffset;
+
+    // set state based on location info (explained in more detail below)
+    setVisible(
+      (prevScrollPos > currentScrollPos &&
+        prevScrollPos - currentScrollPos > 70) ||
+        currentScrollPos < 10
+    );
+
+    // set state to new scroll position
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos, visible, handleScroll]);
+
   return (
-    <div className="absolute w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk px-16 z-50 bg-opacity-70">
+    <div
+      className={`${
+        visible ? "" : "opacity-0"
+      } fixed w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk px-16 z-50 bg-opacity-70 transition-all duration-200`}
+    >
       <div className="home">
         <p className="text-2xl font-tan-nimbus">Home</p>
       </div>
