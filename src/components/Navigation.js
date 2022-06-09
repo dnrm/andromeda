@@ -30,10 +30,10 @@ const Navigation = () => {
     <div
       className={`${
         visible ? "" : "opacity-0"
-      } fixed w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk px-16 z-50 bg-opacity-70 transition-all duration-200`}
+      } fixed w-full flex justify-between items-center tracking-tighter bg-black p-4 text-snow font-space-grotesk px-16 z-50 bg-opacity-80 transition-all duration-200`}
     >
       <div className="home">
-        <p className="text-2xl font-tan-nimbus">
+        <p className="pt-1 text-2xl font-tan-nimbus">
           <Link to="/">Home</Link>
         </p>
       </div>

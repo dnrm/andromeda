@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        "8xl": "5rem",
+        "8xl": "7rem",
         "9xl": "10rem",
         "10xl": "12rem",
       },
@@ -12,7 +12,9 @@ module.exports = {
         davys: "#50514F",
         ash: "#CBD4C2",
         aqua: "#2B91BD",
-        khaki: "#E6DFD4"
+        khaki: "#F1E8D1",
+        "bright-yellow": "#FFCF54",
+        maroon: "#9D6060",
       },
       fontFamily: {
         sono: "Sono, sans-serif",
@@ -22,6 +24,9 @@ module.exports = {
       },
       lineHeight: {
         squash: "0.7",
+      },
+      borderWidth: {
+        20: "20px",
       },
     },
   },
