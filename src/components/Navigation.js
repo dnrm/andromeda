@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -32,14 +33,26 @@ const Navigation = () => {
       } fixed w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk px-16 z-50 bg-opacity-70 transition-all duration-200`}
     >
       <div className="home">
-        <p className="text-2xl font-tan-nimbus">Home</p>
+        <p className="text-2xl font-tan-nimbus">
+          <Link to="/">Home</Link>
+        </p>
       </div>
       <div className="links flex justify-center items-center gap-5 invisible sm:visible text-sm">
-        <p>About</p>
-        <p>Shop Coffee</p>
-        <p>Sustainability</p>
-        <p>Top Rated</p>
-        <p>Cart</p>
+        <p>
+          <Link to="/about">About</Link>
+        </p>
+        <p>
+          <Link to="/shop">Shop Coffee</Link>
+        </p>
+        <p>
+          <Link to="/sustainability">Sustainability</Link>
+        </p>
+        <p>
+          <Link to="/top-rated">Top Rated</Link>
+        </p>
+        <p>
+          <Link to="/cart">Cart</Link>
+        </p>
       </div>
       <div className="hamburger sm:hidden">
         <svg

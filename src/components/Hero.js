@@ -1,10 +1,8 @@
 import React from "react";
-import Navigation from "./Navigation";
 
 const Hero = ({ video }) => {
   return (
     <div className={`hero ${video ? "" : "bg-[url('../public/cups.jpeg')]"}`}>
-      <Navigation />
       <div className="gap-8 flex flex-col justify-center items-center p-16 h-[100vh] bg-black">
         <div className="content flex flex-col justify-center items-center z-10 gap-4">
           <div className="heading">
