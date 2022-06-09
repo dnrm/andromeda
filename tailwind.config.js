@@ -14,7 +14,8 @@ module.exports = {
         aqua: "#2B91BD",
         khaki: "#F1E8D1",
         "bright-yellow": "#FFCF54",
-        maroon: "#9D6060",
+        maroon: "#CF8441",
+        leaf: "#697967"
       },
       fontFamily: {
         sono: "Sono, sans-serif",
