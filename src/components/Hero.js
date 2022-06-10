@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import anime from "animejs";
 
 const Hero = ({ video }) => {
+  const animationRef = useRef(null);
+  useEffect(() => {
+    animationRef.current = anime({
+      targets: '.content-hero',
+      opacity: '100%',
+      duration: 1000,
+      easing: 'easeInOutQuad',
+    });
+  }, []);
+
   return (
     <div className="bg-black">
       <div
@@ -9,9 +20,9 @@ const Hero = ({ video }) => {
         }`}
       >
         <div className="gap-8 flex flex-col justify-center items-center p-16 h-[100vh] ">
-          <div className="content flex flex-col justify-center items-center z-10 gap-4">
+          <div className="content-hero opacity-0 flex flex-col justify-center items-center z-10 gap-4">
             <div className="heading">
-              <h1 className="uppercase text-bright-yellow text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
+              <h1 className="website-title uppercase text-bright-yellow text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
                 Andromeda Roasters
               </h1>
             </div>
