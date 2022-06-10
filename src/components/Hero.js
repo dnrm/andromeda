@@ -5,7 +5,7 @@ const Hero = ({ video }) => {
     <div className="bg-black">
       <div
         className={`hero ${
-          video ? "" : "bg-[url('../public/hero.jpeg')] bg-cover"
+          video ? "" : "bg-[url('../public/hero.webp')] bg-cover"
         }`}
       >
         <div className="gap-8 flex flex-col justify-center items-center p-16 h-[100vh] ">
