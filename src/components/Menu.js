@@ -27,6 +27,27 @@ const Menu = () => {
           }
           price={39}
         />
+        <Product
+          title="Caramel Latte"
+          image={
+            "https://images.unsplash.com/photo-1593443320739-77f74939d0da"
+          }
+          price={49}
+        />
+        <Product
+          title="Cold Brew"
+          image={
+            "https://images.unsplash.com/photo-1501006094252-8dc90bfd2c3f"
+          }
+          price={49}
+        />
+        <Product
+          title="Pour Over"
+          image={
+            "https://images.unsplash.com/photo-1544421604-4bfaaeba6830"
+          }
+          price={49}
+        />
       </div>
     </div>
   );

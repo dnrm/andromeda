@@ -50,7 +50,7 @@ const Statement = () => {
       >
         <img
           src="/cup.jpeg"
-          className="xl:absolute xl:max-w-3xl w-full h-full xl:h-1/2 object-cover roast-image relative"
+          className="xl:absolute xl:max-w-3xl w-full h-80 xl:h-1/2 object-cover roast-image relative"
           alt=""
         />
       </div>

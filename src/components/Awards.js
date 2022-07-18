@@ -2,22 +2,17 @@ import React from "react";
 
 const Awards = () => {
   return (
-    <div className="bg-leaf py-14 px-8 moroccan">
-      <div className="layer1 flex">
-        <div className="titles">
-          <h1 className="text-shadow-awards text-bright-yellow text-6xl md:text-7xl xl:text-9xl font-tan-nimbus py-2">
-            Awards.
-          </h1>
-          <h1 className="text-shadow-awards text-bright-yellow text-6xl md:text-7xl xl:text-9xl font-tan-nimbus py-2">
-            Awards.
-          </h1>
-          <h1 className="text-shadow-awards text-bright-yellow text-6xl md:text-7xl xl:text-9xl font-tan-nimbus py-2">
-            Awards.
-          </h1>
-        </div>
-        <div className="award-icon grid place-items-center w-full">
-          <img src="/award.png" className="h-[80%] rounded-full p-0 border-0 border-khaki bg-khaki" alt="" />
-        </div>
+    <div className="bg-leaf p-8 md:px-8 md:py-16 moroccan flex justify-start items-center w-full">
+      <div className="flex w-full justify-center items-start text-center flex-col">
+        <h1 className="text-shadow-awards text-bright-yellow text-4xl md:text-7xl xl:text-8xl font-tan-nimbus py-2">
+          Andromeda Coffee
+        </h1>
+        <h1 className="text-shadow-awards text-bright-yellow text-4xl md:text-7xl xl:text-8xl font-tan-nimbus py-2">
+          Andromeda Coffee
+        </h1>
+        <h1 className="text-shadow-awards text-bright-yellow text-4xl md:text-7xl xl:text-8xl font-tan-nimbus py-2">
+          Andromeda Coffee
+        </h1>
       </div>
     </div>
   );
