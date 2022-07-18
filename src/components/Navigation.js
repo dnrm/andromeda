@@ -22,9 +22,6 @@ const Navigation = () => {
           <Link to="/quality">Quality</Link>
         </p>
         <p>
-          <Link to="/top-rated">Top Rated</Link>
-        </p>
-        <p>
           <Link to="/cart" className="flex justify-center items-center gap-2">
             Cart{" "}
             <svg
@@ -47,7 +44,7 @@ const Navigation = () => {
       <div className="hamburger sm:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
+          className="h-8 w-8"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

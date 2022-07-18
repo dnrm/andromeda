@@ -13,7 +13,7 @@ const Hero = ({ video }) => {
   }, []);
 
   return (
-    <div className="bg-black">
+    <div className="bg-black w-full">
       <div
         className={`hero ${
           video ? "" : "bg-[url('../public/hero.webp')] bg-cover"
