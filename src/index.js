@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 // * Route Components
 import App from "./App";
 import About from "./components/About";
+import Menu from "./components/Menu";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,6 +18,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
+      <Route path="/menu" element={<Menu />} />
     </Routes>
   </BrowserRouter>
 );

@@ -40,7 +40,7 @@ const Statement = () => {
           </h2>
           <p className="font-space-grotesk text-xl tracking-tighter max-w-2xl pt-4 leading-tight">
             At Andromeda we strive to create the perfect cup of coffee, using
-            only the finest beans and roasting them to perfection.
+            beans from Lavazza, guranteeing a tasty and satisfying experience.
           </p>
         </div>
       </div>
@@ -49,8 +49,8 @@ const Statement = () => {
         ref={imageRef}
       >
         <img
-          src="/roaster.jpeg"
-          className="xl:absolute xl:max-w-3xl w-full h-full xl:h-auto object-cover roast-image relative"
+          src="/cup.jpeg"
+          className="xl:absolute xl:max-w-3xl w-full h-full xl:h-1/2 object-cover roast-image relative"
           alt=""
         />
       </div>

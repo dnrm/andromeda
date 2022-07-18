@@ -39,6 +39,9 @@ const Navigation = () => {
       </div>
       <div className="links flex justify-center items-center gap-5 invisible sm:visible text-sm">
         <p>
+          <Link to="/menu">Menu</Link>
+        </p>
+        <p>
           <Link to="/about">About</Link>
         </p>
         <p>

@@ -1,15 +1,16 @@
 import React from "react";
 
-const Product = ({ title }) => {
+const Product = ({ title, image, price }) => {
   return (
-    <div className="p-5 rounded-corners-product cursor-pointer">
+    <div className="cursor-pointer">
       <div
-        className={`image rounded-corners-product-child flex justify-center items-center dots bg-khaki p-16 pt-24 transition-all duration-500`}
+        className={`h-96 image flex rounded-corners-product justify-center items-center`}
       >
-        <img src="/bag.png" className="h-[30vw] object-cover" alt="" />
+        <img src={image} className="h-full rounded-corners-product-child object-cover rounded-corners-product-child transition-all duration-500 w-full" alt="" />
       </div>
-      <div className="product-info py-5">
+      <div className="product-info py-5 flex justify-between items-center">
         <h1 className="text-3xl font-tan-nimbus hover:underline">{title}</h1>
+        <p className="font-mono text-yellow-500 text-2xl font-bold">${price}</p>
       </div>
     </div>
   );
