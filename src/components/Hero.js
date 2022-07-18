@@ -19,15 +19,15 @@ const Hero = ({ video }) => {
           video ? "" : "bg-[url('../public/hero.webp')] bg-cover"
         }`}
       >
-        <div className="gap-8 flex flex-col justify-center items-center p-16 h-[100vh] ">
+        <div className="gap-8 flex flex-col justify-center items-center p-12 h-[100vh] ">
           <div className="content-hero opacity-0 flex flex-col justify-center items-center z-10 gap-4">
             <div className="heading">
-              <h1 className="website-title uppercase text-bright-yellow text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
+              <h1 className="website-title uppercase text-bright-yellow text-4xl sm:text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
                 Andromeda Roasters
               </h1>
             </div>
             <div className="cta">
-              <button className="bg-bright-yellow py-4 px-16 text-white font-bold font-space-grotesk text-xl hover:scale-110 transition-all duration-100">
+              <button className="bg-bright-yellow py-2 md:py-4 text-base md:text-xl px-8 md:px-16 text-white font-bold font-space-grotesk hover:scale-110 transition-all duration-100">
                 Shop Coffee
               </button>
             </div>

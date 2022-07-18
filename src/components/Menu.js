@@ -39,14 +39,14 @@ const Menu = () => {
           image={
             "https://images.unsplash.com/photo-1501006094252-8dc90bfd2c3f"
           }
-          price={49}
+          price={39}
         />
         <Product
           title="Pour Over"
           image={
             "https://images.unsplash.com/photo-1544421604-4bfaaeba6830"
           }
-          price={49}
+          price={39}
         />
       </div>
     </div>
