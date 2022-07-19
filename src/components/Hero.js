@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import anime from "animejs";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Hero = ({ video }) => {
   const animationRef = useRef(null);
@@ -23,13 +25,13 @@ const Hero = ({ video }) => {
           <div className="content-hero opacity-0 flex flex-col justify-center items-center z-10 gap-4">
             <div className="heading">
               <h1 className="website-title uppercase text-bright-yellow text-4xl sm:text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
-                Andromeda Roasters
+                Andromeda Coffee
               </h1>
             </div>
             <div className="cta">
-              <button className="bg-bright-yellow py-2 md:py-4 text-base md:text-xl px-8 md:px-16 text-white font-bold font-space-grotesk hover:scale-110 transition-all duration-100">
-                Shop Coffee
-              </button>
+              <HashLink smooth to="/#menu" className="bg-bright-yellow py-2 md:py-4 text-base md:text-xl px-8 md:px-16 text-white font-bold font-space-grotesk hover:scale-110 transition-all duration-100">
+                Menu
+              </HashLink>
             </div>
           </div>
           {video && (

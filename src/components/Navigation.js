@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const Navigation = () => {
   return (
@@ -8,18 +9,18 @@ const Navigation = () => {
     >
       <div className="home">
         <p className="pt-1 text-2xl font-tan-nimbus">
-          <Link to="/">Home</Link>
+          <HashLink smooth to="/#">Home</HashLink>
         </p>
       </div>
       <div className="links flex justify-center items-center gap-5 invisible sm:visible text-base">
         <p>
-          <Link to="/menu">Menu</Link>
+          <HashLink smooth to="/#menu">Menu</HashLink>
         </p>
         <p>
           <Link to="/about">About</Link>
         </p>
         <p>
-          <Link to="/quality">Quality</Link>
+          <HashLink smooth to="/#quality">Quality</HashLink>
         </p>
         <p>
           <Link to="/cart" className="flex justify-center items-center gap-2">

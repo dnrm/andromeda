@@ -3,7 +3,7 @@ import Product from "./Product";
 
 const Menu = () => {
   return (
-    <div className="product-section p-5 md:p-10 pt-20 md:pt-24 w-full">
+    <div className="product-section p-5 md:p-10 w-full" id="menu">
       <div className="heading">
         <h1 className="text-6xl md:text-7xl xl:text-8xl font-tan-nimbus py-8">
           Menu
