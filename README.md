@@ -1,4 +1,4 @@
-![https://github.com/dnrm/andromeda/blob/master/public/screenshot.png?raw=true](https://andromeda.medina.dev)
+![https://andromeda.medina.dev](https://github.com/dnrm/andromeda/blob/master/public/screenshot.png?raw=true)
 
 # Andromeda Coffee
 
