@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Product from "./Product";
+import Product from "./MenuProduct";
 
 const Menu = () => {
   const [products, setProducts] = useState([]);
@@ -31,6 +31,7 @@ const Menu = () => {
               description={attributes.Description}
               image={attributes.Image.data[0].attributes.formats.medium.url}
               price={attributes.Price}
+              slug={attributes.Slug}
             />
           ))}
       </div>

@@ -4,6 +4,7 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
+import Product from "./components/Product";
 
 // * Route Components
 import App from "./App";
@@ -19,6 +20,7 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
       <Route path="/menu" element={<Menu />} />
+      <Route path="/p/:id" element={<Product />} />
     </Routes>
   </BrowserRouter>
 );

@@ -15,7 +15,7 @@ module.exports = {
         khaki: "#F1E8D1",
         "bright-yellow": "#FFCF54",
         maroon: "#CF8441",
-        leaf: "#697967"
+        leaf: "#697967",
       },
       fontFamily: {
         sono: "Sono, sans-serif",
@@ -29,7 +29,12 @@ module.exports = {
       borderWidth: {
         20: "20px",
       },
+      typography: {
+        DEFAULT: {
+          
+        }
+      }
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
