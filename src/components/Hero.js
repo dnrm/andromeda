@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import anime from "animejs";
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Hero = ({ video }) => {

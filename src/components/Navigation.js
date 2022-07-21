@@ -9,18 +9,26 @@ const Navigation = () => {
     >
       <div className="home">
         <p className="pt-1 text-2xl font-tan-nimbus">
-          <HashLink smooth to="/#">Home</HashLink>
+          <HashLink smooth to="/#">
+            Home
+          </HashLink>
         </p>
       </div>
       <div className="links flex justify-center items-center gap-5 invisible sm:visible text-base">
         <p>
-          <HashLink smooth to="/#menu">Menu</HashLink>
+          <HashLink smooth to="/#about">
+            About
+          </HashLink>
         </p>
         <p>
-          <Link to="/about">About</Link>
+          <HashLink smooth to="/#menu">
+            Menu
+          </HashLink>
         </p>
         <p>
-          <HashLink smooth to="/#quality">Quality</HashLink>
+          <HashLink smooth to="/#quality">
+            Quality
+          </HashLink>
         </p>
         <p>
           <Link to="/cart" className="flex justify-center items-center gap-2">
