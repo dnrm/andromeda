@@ -14,33 +14,33 @@ const Footer = () => {
           Andromeda <br /> Coffee
         </h1>
       </div>
-      <div className="links-internal flex flex-col justify-center items-start md:items-center text-neutral-200 font-space-grotesk text-2xl">
+      <div className="links-internal flex flex-col justify-center items-start md:items-center text-neutral-200 font-space-grotesk">
         <div className="link">
           <p>
-            <Link to="/menu" className="hover:underline">
+            <Link to="/menu" className="text-base md:text-lg lg:text-2xl hover:underline">
               Menu
             </Link>
           </p>
           <p>
-            <Link to="/about" className="hover:underline">
+            <Link to="/about" className="text-base md:text-lg lg:text-2xl hover:underline">
               About
             </Link>
           </p>
           <p>
-            <Link to="/quality" className="hover:underline">
+            <Link to="/quality" className="text-base md:text-lg lg:text-2xl hover:underline">
               Quality
             </Link>
           </p>
         </div>
       </div>
-      <div className="links-external flex flex-col justify-center items-start md:items-center text-neutral-200 font-space-grotesk text-2xl">
+      <div className="links-external flex flex-col justify-center items-start md:items-center text-neutral-200 font-space-grotesk">
         <div className="links">
           <p>
             <a
               href="https://www.instagram.com/andromedacoffee/"
               target={"_blank"}
               rel="noopener noreferrer"
-              className="hover:underline"
+              className="text-base md:text-lg lg:text-2xl hover:underline"
             >
               Instagram
             </a>

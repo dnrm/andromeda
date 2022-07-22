@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { useCartContext } from "../context/CartContext";
 
 const Navigation = () => {
   const opacity = window.location.pathname.includes("/p/");
+  const { cart } = useCartContext();
 
   return (
     <div
@@ -36,7 +38,7 @@ const Navigation = () => {
         </p>
         <p>
           <Link to="/cart" className="flex justify-center items-center gap-2">
-            Cart{" "}
+            Cart ({cart.length}){" "}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"

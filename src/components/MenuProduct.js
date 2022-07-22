@@ -9,7 +9,7 @@ const Product = ({ title, description, slug, image, price }) => {
           <img src={image} className="h-full object-cover w-full" alt="" />
         </div>
         <div className="product-info py-2 md:py-5 flex justify-between items-center">
-          <h1 className="text-xl hover:scale-110 transition-all duration-200 font-tan-nimbus hover:underline">
+          <h1 className="text-xl md:text-2xl hover:scale-110 transition-all duration-200 font-tan-nimbus hover:underline">
             {title}
           </h1>
           <p className="font-mono text-yellow-500 text-2xl font-bold">

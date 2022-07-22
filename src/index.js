@@ -5,6 +5,8 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Product from "./components/Product";
+import MenuProvider from "./context/MenuContext";
+import { CartProvider } from "./context/CartContext";
 
 // * Route Components
 import App from "./App";
@@ -16,14 +18,18 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
-    <Navigation />
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/menu" element={<Menu />} />
-      <Route path="/admin" element={<Admin />} />
-      <Route path="/p/:id" element={<Product />} />
-    </Routes>
+    <MenuProvider>
+      <CartProvider>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/p/:id" element={<Product />} />
+        </Routes>
+      </CartProvider>
+    </MenuProvider>
   </BrowserRouter>
 );
 

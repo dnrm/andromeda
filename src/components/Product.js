@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import QueryString from "qs";
 import ReactMarkdown from "react-markdown";
 import Footer from "./Footer";
+import { useCartContext } from "../context/CartContext";
 
-const Products = () => {
+const Products = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState();
+  const { cart, setCart } = useCartContext();
+  console.log(cart)
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -29,6 +32,10 @@ const Products = () => {
     fetchProduct();
   }, [id]);
 
+  const handleOrder = () => {
+    setCart([...cart, product]);
+  }
+
   return (
     <div className="bg-khaki h-full pt-12">
       {product ? (
@@ -45,7 +52,7 @@ const Products = () => {
             <ReactMarkdown className="prose pt-4">
               {product.attributes.Description}
             </ReactMarkdown>
-            <button className="order bg-leaf flex justify-center items-center hover:shadow-xl p-2 lg:p-3 px-4 lg:px-5 rounded-xl text-white w-full mt-8 gap-2">
+            <button onClick={handleOrder} className="order bg-leaf flex justify-center items-center hover:shadow-xl p-2 lg:p-3 px-4 lg:px-5 rounded-xl text-white w-full mt-8 gap-2">
               Order
               <svg
                 xmlns="http://www.w3.org/2000/svg"
