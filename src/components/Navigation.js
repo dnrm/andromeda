@@ -3,9 +3,13 @@ import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Navigation = () => {
+  const opacity = window.location.pathname.includes("/p/");
+
   return (
     <div
-      className={`fixed w-full flex justify-between items-center tracking-tighter bg-black p-4 text-snow font-space-grotesk px-6 md:px-16 z-50 bg-opacity-80 transition-all duration-200`}
+      className={`fixed w-full flex justify-between items-center tracking-tighter bg-black p-4 text-snow font-space-grotesk px-6 md:px-16 z-50 ${
+        opacity ? "bg-opacity-100" : "bg-opacity-80"
+      } transition-all duration-200`}
     >
       <div className="home">
         <p className="pt-1 text-2xl font-tan-nimbus">

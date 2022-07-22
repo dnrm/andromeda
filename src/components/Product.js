@@ -30,21 +30,38 @@ const Products = () => {
   }, [id]);
 
   return (
-    <div className="bg-khaki h-full ">
+    <div className="bg-khaki h-full pt-12">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
           <div className="p-8 pt-10 md:pt-32 order-2 md:order-1">
-            <h1 className="text-4xl md:text-6xl lg:text-8xl text-yellow-500 font-tan-nimbus">
-              {product.attributes.Title}
+            <h1 className="text-4xl flex lg:flex-col justify-start items-center lg:items-start gap-4 md:text-6xl lg:text-8xl text-yellow-500 font-tan-nimbus">
+              {product.attributes.Title}{" "}
+              <p className="font-space-grotesk block pb-4 text-neutral-200 text-base md:text-xl">
+                <span className="bg-maroon p-2 lg:p-3 px-4 lg:px-5 rounded-xl">
+                  ${product.attributes.Price}
+                </span>
+              </p>
             </h1>
             <ReactMarkdown className="prose pt-4">
               {product.attributes.Description}
             </ReactMarkdown>
-            <p className="font-space-grotesk pt-8 block pb-4 text-neutral-200 text-xl md:text-3xl">
-              <span className="bg-leaf p-3 px-5 rounded-xl">
-                ${product.attributes.Price}
-              </span>
-            </p>
+            <button className="order bg-leaf flex justify-center items-center hover:shadow-xl p-2 lg:p-3 px-4 lg:px-5 rounded-xl text-white w-full mt-8 gap-2">
+              Order
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
           </div>
           <div className="image xl:h-[80vh] w-full order-1 xl:order-2">
             <img

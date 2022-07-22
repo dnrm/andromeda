@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="logo flex justify-start items-center gap-4 p-0">
         <img
           src="/a.png"
-          className="h-28 md:h-48 rounded-full"
+          className="h-12 md:h-24 lg:h-36 rounded-full"
           alt="Andromeda Coffee logo"
         />
-        <h1 className="text-white font-tan-nimbus text-3xl md:text-5xl">
+        <h1 className="text-white font-tan-nimbus text-xl md:text-3xl lg:text-5xl">
           Andromeda <br /> Coffee
         </h1>
       </div>
