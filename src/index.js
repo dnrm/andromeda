@@ -10,6 +10,7 @@ import Product from "./components/Product";
 import App from "./App";
 import About from "./components/About";
 import Menu from "./components/Menu";
+import Admin from "./components/Admin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -20,6 +21,7 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/about" element={<About />} />
       <Route path="/menu" element={<Menu />} />
+      <Route path="/admin" element={<Admin />} />
       <Route path="/p/:id" element={<Product />} />
     </Routes>
   </BrowserRouter>
