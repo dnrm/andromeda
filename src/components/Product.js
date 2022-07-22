@@ -30,12 +30,12 @@ const Products = () => {
   }, [id]);
 
   return (
-    <div className="bg-khaki h-[80vh]">
+    <div className="bg-khaki h-full ">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
           <div className="p-8 pt-10 md:pt-32 order-2 md:order-1">
             <h1 className="text-4xl md:text-6xl lg:text-8xl text-yellow-500 font-tan-nimbus">
-              {id.charAt(0).toUpperCase() + id.slice(1)}
+              {product.attributes.Title}
             </h1>
             <ReactMarkdown className="prose pt-4">
               {product.attributes.Description}
