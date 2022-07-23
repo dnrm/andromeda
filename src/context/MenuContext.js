@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { createContext } from "react";
 import useSWR from "swr";
 
@@ -12,10 +12,11 @@ export default function MenuWrapper({ children }) {
     fetcher
   );
 
-  if (error) return "An error has occurred.";
-  if (!data) return "Loading...";
-
-  return <MenuContext.Provider value={data.data}>{children}</MenuContext.Provider>;
+  return (
+    <MenuContext.Provider value={{ data, error }}>
+      {children}
+    </MenuContext.Provider>
+  );
 }
 
 export function useMenuContext() {

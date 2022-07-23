@@ -18,18 +18,16 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <BrowserRouter>
-    <MenuProvider>
-      <CartProvider>
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/p/:id" element={<Product />} />
-        </Routes>
-      </CartProvider>
-    </MenuProvider>
+    <CartProvider>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/p/:id" element={<Product />} />
+      </Routes>
+    </CartProvider>
   </BrowserRouter>
 );
 
