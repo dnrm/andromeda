@@ -37,10 +37,10 @@ const Products = (props) => {
   }
 
   return (
-    <div className="bg-khaki h-full pt-12">
+    <div className="bg-khaki h-full">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
-          <div className="p-8 pt-10 md:pt-32 order-2 md:order-1">
+          <div className="p-8 pt-12 order-2 md:order-1">
             <h1 className="text-4xl flex lg:flex-col justify-start items-center lg:items-start gap-4 md:text-6xl lg:text-8xl text-yellow-500 font-tan-nimbus">
               {product.attributes.Title}{" "}
               <p className="font-space-grotesk block pb-4 text-neutral-200 text-base md:text-xl">
@@ -53,7 +53,7 @@ const Products = (props) => {
               {product.attributes.Description}
             </ReactMarkdown>
             <button onClick={handleOrder} className="order bg-leaf flex justify-center items-center hover:shadow-xl p-2 lg:p-3 px-4 lg:px-5 rounded-xl text-white w-full mt-8 gap-2">
-              Order
+              Add to cart
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"

@@ -13,6 +13,7 @@ import App from "./App";
 import About from "./components/About";
 import Menu from "./components/Menu";
 import Admin from "./components/Admin";
+import Cart from "./components/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -25,6 +26,7 @@ root.render(
         <Route path="/about" element={<About />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/p/:id" element={<Product />} />
       </Routes>
     </CartProvider>
