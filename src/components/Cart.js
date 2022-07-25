@@ -29,7 +29,7 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
   };
 
   return (
-    <>
+    <div className="h-[80vh]">
       <div className="w-full h-full px-4 pt-0 md:pt-4">
         <h1 className="pt-8 md:pt-16 pb-2 text-4xl md:text-6xl lg:text-8xl font-tan-nimbus text-yellow-500 max-w-6xl mx-auto">
           Cart
@@ -95,7 +95,7 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
