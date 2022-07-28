@@ -4,6 +4,7 @@ import QueryString from "qs";
 import ReactMarkdown from "react-markdown";
 import Footer from "./Footer";
 import { useCartContext } from "../context/CartContext";
+import { toast } from "react-hot-toast";
 
 const Products = (props) => {
   const { id } = useParams();
@@ -34,6 +35,7 @@ const Products = (props) => {
 
   const handleOrder = () => {
     setCart([...cart, product]);
+    toast.success(`1 ${product.attributes.Title} added to cart!`);
   }
 
   return (
@@ -81,8 +83,8 @@ const Products = (props) => {
           </div>
         </div>
       ) : (
-        <div className="content">
-          <h1 className="text-8xl text-yellow-500 font-tan-nimbus">
+        <div className="content h-[60vh] p-5 flex justify-center items-center">
+          <h1 className="text-2xl md:text-8xl text-yellow-500 font-tan-nimbus">
             Loading...
           </h1>
         </div>

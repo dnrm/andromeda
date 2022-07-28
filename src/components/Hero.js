@@ -23,7 +23,7 @@ const Hero = ({ video }) => {
         <div className="gap-8 flex flex-col justify-center items-center p-12 h-[95vh] ">
           <div className="content-hero opacity-0 flex flex-col justify-center items-center z-10 gap-4">
             <div className="heading">
-              <h1 className="website-title uppercase text-bright-yellow text-5xl sm:text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
+              <h1 className="website-title uppercase text-bright-yellow text-4xl sm:text-6xl md:text-8xl text-center xl:text-9xl tracking-tighter leading-none font-bold font-tan-nimbus">
                 Andromeda <br /> Coffee
               </h1>
             </div>

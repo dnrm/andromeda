@@ -5,7 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Product from "./components/Product";
-import MenuProvider from "./context/MenuContext";
+import { Toaster } from "react-hot-toast";
 import { CartProvider } from "./context/CartContext";
 
 // * Route Components
@@ -30,6 +30,7 @@ root.render(
         <Route path="/p/:id" element={<Product />} />
       </Routes>
     </CartProvider>
+    <Toaster />
   </BrowserRouter>
 );
 

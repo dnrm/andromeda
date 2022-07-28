@@ -31,6 +31,11 @@ const Footer = () => {
               Quality
             </Link>
           </p>
+          <p>
+            <Link to="/cart" className="text-base md:text-lg lg:text-2xl hover:underline">
+              Cart
+            </Link>
+          </p>
         </div>
       </div>
       <div className="links-external flex flex-col justify-center items-start md:items-center text-neutral-200 font-space-grotesk">
