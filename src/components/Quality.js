@@ -20,11 +20,11 @@ const Quality = ({ topPadding }) => {
           texture, to the temperature of the cup.
         </p>
       </div>
-      <div className="image h-full w-full">
+      <div className="image h-96 md:h-[40rem] w-full">
         <img
-          src="/beans.jpeg"
+          src="/bw-coffee.JPG"
           alt="Coffee beans"
-          className="h-[75vh] w-full object-cover"
+          className="h-full w-full object-cover"
         />
       </div>
     </div>
