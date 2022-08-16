@@ -13,7 +13,6 @@ const Testimonials = () => {
       <div className="testimonials grid grid-cols-1 md:grid-cols-3 pt-6 md:pt-12 gap-4">
         <Testimonial />
         <Testimonial />
-        <Testimonial />
       </div>
     </div>
   );

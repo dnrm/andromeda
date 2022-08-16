@@ -8,10 +8,10 @@ const Quality = ({ topPadding }) => {
       id="quality"
     >
       <div className="bg-snow text">
-        <h1 className="leading-normal bg-neutral-800 text-bright-yellow text-5xl md:text-6xl p-12 text-center lg:text-8xl font-tan-nimbus">
+        <h1 className="leading-normal bg-neutral-800 text-bright-yellow text-5xl md:text-6xl p-16 text-center lg:text-8xl font-tan-nimbus">
           <Link to="/quality">Quality</Link>
         </h1>
-        <p className="text-xl p-5 font-space-grotesk text-neutral-600">
+        <p className="text-xl p-5 md:px-20 font-space-grotesk text-neutral-600">
           As a coffee fanatic myself, I strive to deliver customers with the
           best coffee experience they'll ever have. We use high quality coffee
           beans from Lavazza and guarantee a tasty and satisfying experience. We
@@ -19,7 +19,7 @@ const Quality = ({ topPadding }) => {
           texture, to the temperature of the cup.
         </p>
       </div>
-      <div className="image h-80 md:h-[40rem] w-full">
+      <div className="image px-5 md:px-20 pb-5 h-96 md:h-[40rem] w-full">
         <img
           src="/bw-coffee.JPG"
           alt="Coffee beans"

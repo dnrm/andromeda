@@ -9,7 +9,7 @@ const Navigation = () => {
 
   return (
     <div
-      className={`absolute w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk md:px-16 z-50 transition-all duration-200`}
+      className={`w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk md:px-16 z-50 transition-all duration-200`}
     >
       <div className="home">
         <p className="text-2xl font-tan-nimbus">
