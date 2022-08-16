@@ -4,7 +4,7 @@ const Statement = () => {
   return (
     <div
       id="about"
-      className="super-container image w-screen h-full bg-white p-5 md:p-20"
+      className="super-container image w-screen h-full bg-white p-5 md:p-20 max-w-7xl mx-auto"
     >
       <div className="col-span-2 text text-black font-inter pt-3 md:pt-10 flex flex-col justify-between items-start w-full">
         <div className="main xl:mt-12 z-10">

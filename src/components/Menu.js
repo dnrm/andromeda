@@ -11,16 +11,16 @@ const Menu = () => {
   }
 
   return (
-    <div className="product-section px-4 md:p-10 w-full bg-snow" id="menu">
+    <div className="product-section px-4 md:px-20 py-5 w-full bg-snow max-w-7xl mx-auto" id="menu">
       <div className="heading py-4">
-        <h1 className="text-4xl md:text-7xl xl:text-9xl font-tan-nimbus">
+        <h1 className="text-4xl md:text-7xl xl:text-7xl font-tan-nimbus">
           Menu
         </h1>
       </div>
       <hr />
       <div className="products py-5">
         {data ? (
-          <div className="products grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-8">
+          <div className="products grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 md:gap-8">
             {data &&
               data.map(({ attributes, id }) => (
                 <Product

@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 const Quality = ({ topPadding }) => {
   return (
     <div
-      className={`${topPadding ? "pt-16" : ""} grid grid-cols-1`}
+      className={`${topPadding ? "pt-16" : ""} grid grid-cols-1 max-w-7xl mx-auto`}
       id="quality"
     >
       <div className="bg-snow text">
-        <h1 className="leading-normal bg-neutral-800 text-bright-yellow text-5xl md:text-6xl p-16 text-center lg:text-8xl font-tan-nimbus">
+        <h1 className="leading-normal bg-neutral-800 text-bright-yellow text-5xl md:text-6xl md:mx-20 py-16 text-center lg:text-8xl font-tan-nimbus">
           <Link to="/quality">Quality</Link>
         </h1>
         <p className="text-xl p-5 md:px-20 font-space-grotesk text-neutral-600">

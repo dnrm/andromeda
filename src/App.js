@@ -10,13 +10,15 @@ function App() {
   return (
     <div className="bg-snow">
       <Hero />
-      <Statement />
-      <Quality />
-      <Testimonials />
-      <MenuWrapper>
-        <Menu />
-      </MenuWrapper>
-      <Footer />
+      <div className="">
+        <Statement />
+        <Quality />
+        <Testimonials />
+        <MenuWrapper>
+          <Menu />
+        </MenuWrapper>
+        <Footer />
+      </div>
     </div>
   );
 }
