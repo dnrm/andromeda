@@ -39,7 +39,7 @@ const Products = (props) => {
   }
 
   return (
-    <div className="bg-khaki h-full">
+    <div className="bg-khaki h-full pt-16">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
           <div className="p-8 pt-12 order-2 md:order-1">

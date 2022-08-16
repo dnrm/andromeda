@@ -4,15 +4,14 @@ import { Link } from "react-router-dom";
 const Quality = ({ topPadding }) => {
   return (
     <div
-      className={`${topPadding ? "pt-16" : ""} grid grid-cols-1 lg:grid-cols-2`}
+      className={`${topPadding ? "pt-16" : ""} grid grid-cols-1`}
       id="quality"
     >
-      <div className="p-10 bg-snow text">
-        <h1 className="leading-normal text-4xl md:text-6xl md:pt-4 lg:text-8xl font-tan-nimbus text-leaf">
+      <div className="bg-snow text">
+        <h1 className="leading-normal bg-neutral-800 text-bright-yellow text-5xl md:text-6xl p-12 text-center lg:text-8xl font-tan-nimbus">
           <Link to="/quality">Quality</Link>
-          <span className="no-underline">🪴</span>
         </h1>
-        <p className="text-xl font-space-grotesk text-neutral-600 pt-4">
+        <p className="text-xl p-5 font-space-grotesk text-neutral-600">
           As a coffee fanatic myself, I strive to deliver customers with the
           best coffee experience they'll ever have. We use high quality coffee
           beans from Lavazza and guarantee a tasty and satisfying experience. We
@@ -20,7 +19,7 @@ const Quality = ({ topPadding }) => {
           texture, to the temperature of the cup.
         </p>
       </div>
-      <div className="image h-96 md:h-[40rem] w-full">
+      <div className="image h-80 md:h-[40rem] w-full">
         <img
           src="/bw-coffee.JPG"
           alt="Coffee beans"

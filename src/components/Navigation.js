@@ -9,12 +9,12 @@ const Navigation = () => {
 
   return (
     <div
-      className={`w-full flex justify-between items-center tracking-tighter bg-black p-4 text-snow font-space-grotesk px-6 md:px-16 z-50 transition-all duration-200`}
+      className={`absolute w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk md:px-16 z-50 transition-all duration-200`}
     >
       <div className="home">
-        <p className="pt-1 text-2xl font-tan-nimbus">
+        <p className="text-2xl font-tan-nimbus">
           <HashLink smooth to="/#">
-            Home
+            <img src="/a.png" alt="" className="h-12 rounded-full" />
           </HashLink>
         </p>
       </div>

@@ -5,7 +5,7 @@ const Product = ({ title, description, slug, image, price }) => {
   return (
     <Link to={"/p/" + slug}>
       <div className="cursor-pointer">
-        <div className={`h-52 md:h-96 image flex justify-center items-center`}>
+        <div className={`w-full h-[36rem] md:h-96 image flex justify-center items-center`}>
           <img src={image} className="h-full object-cover w-full" alt="" />
         </div>
         <div className="product-info py-2 md:py-5 flex justify-between items-center">

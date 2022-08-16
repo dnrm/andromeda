@@ -11,11 +11,11 @@ function App() {
     <div className="bg-snow">
       <Hero />
       <Statement />
+      <Quality />
+      <Testimonials />
       <MenuWrapper>
         <Menu />
       </MenuWrapper>
-      <Testimonials />
-      <Quality />
       <Footer />
     </div>
   );
