@@ -10,7 +10,6 @@ const Navigation = () => {
   const { cart } = useCartContext();
 
   useEffect(() => {
-    console.log(location.pathname);
     setCurrentLocation(location.pathname);
   }, [location]);
 
@@ -18,7 +17,7 @@ const Navigation = () => {
     <>
       <div
         className={`${
-          currentLocation === "/"
+          currentLocation === "/" || currentLocation.includes("/p/")
             ? "bg-black text-white"
             : "bg-white text-black"
         } w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk md:px-16 z-50 transition-all duration-200`}
@@ -109,7 +108,7 @@ const Navigation = () => {
       {navbarOpen && (
         <div
           className={`mobile-navbar ${
-            currentLocation === "/"
+            currentLocation === "/" || currentLocation.includes("/p/")
               ? "bg-black text-white"
               : "bg-white text-black"
           }`}
