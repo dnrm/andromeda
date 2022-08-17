@@ -10,7 +10,7 @@ const Products = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState();
   const { cart, setCart } = useCartContext();
-  console.log(cart)
+  console.log(cart);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -36,10 +36,10 @@ const Products = (props) => {
   const handleOrder = () => {
     setCart([...cart, product]);
     toast.success(`1 ${product.attributes.Title} added to cart!`);
-  }
+  };
 
   return (
-    <div className="bg-khaki h-full pt-16">
+    <div className="bg-khaki h-full">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
           <div className="p-8 pt-12 order-2 md:order-1">
@@ -54,7 +54,10 @@ const Products = (props) => {
             <ReactMarkdown className="prose pt-4">
               {product.attributes.Description}
             </ReactMarkdown>
-            <button onClick={handleOrder} className="order bg-leaf flex justify-center items-center hover:shadow-xl p-2 lg:p-3 px-4 lg:px-5 rounded-xl text-white w-full mt-8 gap-2">
+            <button
+              onClick={handleOrder}
+              className="order bg-leaf flex justify-center items-center hover:shadow-xl p-2 lg:p-3 px-4 lg:px-5 rounded-xl text-white w-full mt-8 gap-2"
+            >
               Add to cart
               <svg
                 xmlns="http://www.w3.org/2000/svg"
