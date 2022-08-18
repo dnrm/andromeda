@@ -5,7 +5,9 @@ import { useCartContext } from "../context/CartContext";
 
 const Navigation = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [currentLocation, setCurrentLocation] = useState(useLocation());
+  const [currentLocation, setCurrentLocation] = useState(
+    window.location.pathname
+  );
   const location = useLocation();
   const { cart } = useCartContext();
 
@@ -17,7 +19,7 @@ const Navigation = () => {
     <>
       <div
         className={`${
-          currentLocation === "/"
+          currentLocation === "/" || currentLocation.includes("/p/")
             ? "bg-black text-white"
             : "bg-white text-black"
         } w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk md:px-16 z-50 transition-all duration-200`}
@@ -108,7 +110,7 @@ const Navigation = () => {
       {navbarOpen && (
         <div
           className={`mobile-navbar ${
-            currentLocation === "/"
+            currentLocation === "/" || currentLocation.includes("/p/")
               ? "bg-black text-white"
               : "bg-white text-black"
           }`}
