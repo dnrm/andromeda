@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCartContext } from "../context/CartContext";
-import Footer from "./Footer";
 import { HashLink } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, setCart } = useCartContext();
-  console.log(cart);
+  const [prices, setPrices] = useState({});
+
+  useEffect(() => {
+    const subtotal = cart.reduce((acc, item) => acc + item.attributes.Price, 0);
+    const tip = Math.floor(subtotal * 0.05);
+    const total = subtotal + tip;
+
+    setPrices({ subtotal, tip, total });
+  }, [cart]);
 
   const createMessage = (cart) => {
     const message = `Hola, me gustaría hacer un pedido de los siguientes productos:
@@ -25,82 +33,143 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
     );
   };
 
-  const clearCart = () => {
-    setCart([]);
+  const deleteProduct = (index) => {
+    const newCart = cart.filter((item, i) => i !== index);
+    setCart(newCart);
   };
 
   return (
-    <div className="min-h-[80vh] bg-khaki">
-      <div className="w-full h-full px-5 pt-0 md:pt-4">
-        <h1 className="pt-8 md:pt-16 pb-2 text-4xl md:text-6xl lg:text-8xl font-tan-nimbus text-yellow-500 max-w-6xl mx-auto">
+    <div className="min-h-[80vh] bg-white">
+      <div className="w-full h-full px-5 pt-0 md:pt-4 max-w-6xl mx-auto">
+        <h1 className="pt-8 md:pt-16 pb-3 text-4xl md:text-6xl lg:text-8xl font-tan-nimbus text-black">
           Cart
         </h1>
-        <div className="stats max-w-6xl mx-auto pb-5 flex justify-between items-center font-space-grotesk">
-          <div className="total flex justify-start items-center">
-            <p className="text-base md:text-lg lg:text-xl text-snow bg-maroon p-2 md:p-3 rounded-lg">
-              Total: $
-              {cart.reduce((prev, curr) => {
-                return curr.attributes.Price + prev;
-              }, 0)}{" "}
-              MXN
-            </p>
-          </div>
-          <div className="actions flex justify-center items-center gap-4">
-            <button
-              className="order-button flex justify-start items-center"
-              onClick={clearCart}
-            >
-              <p className="text-base md:text-lg lg:text-xl text-snow bg-red-400 p-2 md:p-3 rounded-lg">
-                Clear cart
-              </p>
-            </button>
-            <button
-              className="order-button flex justify-start items-center"
-              onClick={placeOrder}
-            >
-              <p className="text-base md:text-lg lg:text-xl text-snow bg-aqua p-2 md:p-3 rounded-lg">
-                Place order →
-              </p>
-            </button>
-          </div>
-        </div>
-        <div className="cart-contents min-h-[60vh] flex flex-col max-w-6xl mx-auto pb-8 gap-1">
-          {cart.length > 0 ? (
-            cart.map((item, index) => (
-              <div className="item border-b-2 bg-leaf p-3 last:border-b-0 rounded-lg">
-                <div
-                  className="cart-item flex gap-4 justify-start items-center rounded-xl"
-                  key={index}
-                >
-                  <div className="image h-14 md:h-20 w-14 md:w-20">
-                    <img
-                      src={item.attributes.Image.data[0].attributes.url}
-                      className={
-                        "object-cover h-full w-full rounded-lg border-2 border-snow"
-                      }
-                      alt=""
-                    />
-                  </div>
-                  <div className="info text-snow">
-                    <div className="cart-item-name text-lg md:text-2xl lg:text-3xl font-sans font-bold">
-                      {item.attributes.Title}
+        <hr />
+        <div className="min-h-[70vh]">
+          <div className="pt-4 cart-contents flex flex-col pb-2 gap-2">
+            {cart.length > 0 ? (
+              cart.map((item, index) => (
+                <div key={index} className="item bg-neutral-100 p-4">
+                  <div
+                    className="cart-item flex gap-4 justify-start items-start"
+                    key={index}
+                  >
+                    <div className="image h-14 md:h-20 w-14 md:w-20">
+                      <img
+                        src={item.attributes.Image.data[0].attributes.url}
+                        className={"object-cover h-full w-full"}
+                        alt=""
+                      />
                     </div>
-                    <div className="cart-item-price font-space-grotesk text-neutral-300">
-                      ${item.attributes.Price}
+                    <div className="side w-full">
+                      <div className="info text-black font-montserrat flex justify-between items-center w-full gap-2">
+                        <div className="title-and-price flex justify-start items-center gap-2">
+                          <div className="cart-item-name uppercase text-lg md:text-2xl lg:text-3xl font-bold">
+                            <Link to={`/p/${item.attributes.Slug}`}>
+                              {item.attributes.Title}
+                            </Link>
+                          </div>
+                          <div className="text-sm inline cart-item-price font-space-grotesk bg-red-300 p-1 rounded-md text-white">
+                            ${item.attributes.Price}
+                          </div>
+                        </div>
+                        <div
+                          className="delete-button cursor-pointer hover:text-red-400"
+                          onClick={() => deleteProduct(index)}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M6 18L18 6M6 6l12 12"
+                            />
+                          </svg>
+                        </div>
+                      </div>
+                      <div className="description overflow-x-scroll text-neutral-500 font-montserrat">
+                        {item.attributes.Excerpt || item.attributes.Description.split(/[.!]/)[0]}.
+                      </div>
                     </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="h-[70vh] flex justify-center items-center flex-col">
+                <h1 className="text-2xl md:text-4xl lg:text-6xl font-tan-nimbus text-leaf">
+                  Your cart is empty
+                </h1>
+                <HashLink
+                  to="/#menu"
+                  className="text-base md:text-xl text-aqua underline font-space-grotesk"
+                >
+                  Choose some drinks
+                </HashLink>
               </div>
-            ))
-          ) : (
-            <div className="h-[60vh] flex justify-center items-center flex-col">
-              <h1 className="text-2xl md:text-4xl lg:text-6xl font-tan-nimbus text-leaf">Your cart is empty</h1>
-              <HashLink to="/#menu" className="text-base md:text-xl text-aqua underline font-space-grotesk">Choose some drinks</HashLink>
-            </div>
-          )}
+            )}
+          </div>
+          {cart.length > 0 ? (
+            <>
+              <div className="prices bg-neutral-100 pt-4 px-4 pb-2 font-montserrat text-base md:text-xl">
+                <div className="part-one text-neutral-600 pb-2">
+                  <div className="subtotal flex justify-between items-center">
+                    <p>Subtotal: </p>
+                    <span>${prices.subtotal}</span>
+                  </div>
+                  <div className="subtotal flex justify-between items-center">
+                    <p>Tip: </p>
+                    <span>${prices.tip}</span>
+                  </div>
+                </div>
+                <div className="part-two pt-2 pb-2 border-t-2 border-neutral-300 text-neutral-700 font-bold">
+                  <div className="total flex justify-between items-center">
+                    <p>Total: </p>
+                    <span>${prices.total}</span>
+                  </div>
+                </div>
+              </div>
+              <div className="checkout p-4 bg-neutral-100 mt-2 mb-2 flex flex-col gap-4">
+                <div className="checkout-button">
+                  <button
+                    onClick={placeOrder}
+                    className="bg-neutral-900 hover:underline hover:bg-black text-base md:text-lg text-white font-montserrat w-full px-4 py-4 font-bold"
+                  >
+                    Checkout
+                  </button>
+                </div>
+              </div>
+              <div className="to-menu flex justify-center items-center text-xs md:text-sm hover:underline text-neutral-600 pb-8">
+                <Link
+                  to={"/menu"}
+                  className="flex items-center justify-center gap-1 tracking-tighter"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                  </svg>{" "}
+                  Back to menu
+                </Link>
+              </div>
+            </>
+          ) : null}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

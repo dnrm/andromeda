@@ -22,6 +22,7 @@ module.exports = {
         inter: "Inter, sans-serif",
         "space-grotesk": "Space Grotesk, sans-serif",
         "tan-nimbus": "'Tan Nimbus', sans-serif",
+        montserrat: "'Montserrat', sans-serif",
       },
       lineHeight: {
         squash: "0.7",
@@ -30,10 +31,8 @@ module.exports = {
         20: "20px",
       },
       typography: {
-        DEFAULT: {
-          
-        }
-      }
+        DEFAULT: {},
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

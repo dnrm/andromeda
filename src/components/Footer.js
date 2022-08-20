@@ -17,7 +17,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className="link-grid grid grid-cols-2 justify-start items-start">
-          <div className="links-internal text-neutral-200 font-space-grotesk">
+          <div className="links-internal text-neutral-200 font-montserrat">
             <div className="link">
               <p>
                 <Link
@@ -53,7 +53,7 @@ const Footer = () => {
               </p>
             </div>
           </div>
-          <div className="links-external flex flex-col justify-center items-start md:items-center text-neutral-200 font-space-grotesk">
+          <div className="links-external flex flex-col justify-center items-start md:items-center text-neutral-200 font-montserrat">
             <div className="links">
               <p>
                 <a
@@ -89,7 +89,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="copyright">
-          <p className="text-[#A7B1A1] text-sm uppercase font-space-grotesk">
+          <p className="text-[#A7B1A1] text-sm uppercase font-montserrat">
             © {new Date().getFullYear()} Andromeda Coffee. All rights reserved.
           </p>
         </div>

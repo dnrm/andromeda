@@ -19,12 +19,12 @@ const Testimonial = () => {
       </div>
       <div className="p-4 pt-10">
         <div className="quote">
-          <p className="text-lg md:text-2xl font-space-grotesk text-neutral-700 text-center">
+          <p className="text-lg md:text-2xl font-space-grotesk text-neutral-700 text-justify">
             "I love the way you make your coffee. It's so good and I can't stop
             myself from ordering more!"
           </p>
-          <p className="w-full text-center pt-4">
-            <span className="text-black font-light text-center text-sm uppercase font-space-grotesk">
+          <p className="w-full text-right pt-4">
+            <span className="text-black font-light text-right text-sm uppercase font-space-grotesk">
               John Doe
             </span>
           </p>

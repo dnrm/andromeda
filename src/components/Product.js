@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import QueryString from "qs";
 import ReactMarkdown from "react-markdown";
-import Footer from "./Footer";
 import { useCartContext } from "../context/CartContext";
 import { toast } from "react-hot-toast";
 
@@ -10,7 +9,10 @@ const Products = (props) => {
   const { id } = useParams();
   const [product, setProduct] = useState();
   const { cart, setCart } = useCartContext();
-  console.log(cart);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -27,7 +29,6 @@ const Products = (props) => {
         `https://andromeda-strapi.herokuapp.com/api/products?${query}`
       );
       const data = await request.json();
-      console.log(data.data[0]);
       setProduct(data.data[0]);
     };
     fetchProduct();
@@ -42,7 +43,7 @@ const Products = (props) => {
     <div className="bg-khaki h-full">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
-          <div className="p-8 pt-12 order-2 md:order-1">
+          <div className="p-8 pt-12 order-2 xl:order-1">
             <h1 className="text-4xl flex lg:flex-col justify-start items-center lg:items-start gap-4 md:text-6xl lg:text-8xl text-yellow-500 font-tan-nimbus">
               {product.attributes.Title}{" "}
               <p className="font-space-grotesk block pb-4 text-neutral-200 text-base md:text-xl">
@@ -86,13 +87,12 @@ const Products = (props) => {
           </div>
         </div>
       ) : (
-        <div className="content h-[60vh] p-5 flex justify-center items-center">
+        <div className="content h-[80vh] p-5 flex justify-center items-center">
           <h1 className="text-2xl md:text-8xl text-yellow-500 font-tan-nimbus">
             Loading...
           </h1>
         </div>
       )}
-      <Footer />
     </div>
   );
 };

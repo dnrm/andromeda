@@ -3,8 +3,6 @@ import Statement from "./components/Statement";
 import Menu from "./components/Menu";
 import Testimonials from "./components/Testimonials";
 import Quality from "./components/Quality";
-import Footer from "./components/Footer";
-import MenuWrapper from "./context/MenuContext";
 
 function App() {
   return (
@@ -14,10 +12,7 @@ function App() {
         <Statement />
         <Quality />
         <Testimonials />
-        <MenuWrapper>
-          <Menu />
-        </MenuWrapper>
-        <Footer />
+        <Menu />
       </div>
     </div>
   );

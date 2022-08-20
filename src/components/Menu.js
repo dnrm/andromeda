@@ -1,5 +1,7 @@
 import Product from "./MenuProduct";
+import { useEffect } from "react";
 import { useMenuContext } from "../context/MenuContext";
+import { Link } from "react-router-dom";
 
 const Menu = () => {
   const menu = useMenuContext();
@@ -10,11 +12,18 @@ const Menu = () => {
     error = menu.error;
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="product-section px-4 md:px-20 py-5 w-full bg-snow max-w-7xl mx-auto" id="menu">
+    <div
+      className="product-section px-4 md:px-20 py-5 w-full bg-snow max-w-7xl mx-auto"
+      id="menu"
+    >
       <div className="heading py-4">
         <h1 className="text-4xl md:text-7xl xl:text-7xl font-tan-nimbus">
-          Menu
+          <Link to="/menu">Menu</Link>
         </h1>
       </div>
       <hr />

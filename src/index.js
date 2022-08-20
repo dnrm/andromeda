@@ -7,6 +7,8 @@ import Navigation from "./components/Navigation";
 import Product from "./components/Product";
 import { Toaster } from "react-hot-toast";
 import { CartProvider } from "./context/CartContext";
+import MenuWrapper from "./context/MenuContext";
+import Footer from "./components/Footer";
 
 // * Route Components
 import App from "./App";
@@ -20,15 +22,18 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <CartProvider>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/p/:id" element={<Product />} />
-      </Routes>
+      <MenuWrapper>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/p/:id" element={<Product />} />
+        </Routes>
+        <Footer />
+      </MenuWrapper>
     </CartProvider>
     <Toaster />
   </BrowserRouter>

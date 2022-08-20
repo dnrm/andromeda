@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { NavLink, useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { useCartContext } from "../context/CartContext";
@@ -22,7 +23,7 @@ const Navigation = () => {
           currentLocation === "/" || currentLocation.includes("/p/")
             ? "bg-black text-white"
             : "bg-white text-black"
-        } w-full flex justify-between items-center tracking-tighter bg-black p-3 text-snow font-space-grotesk md:px-16 z-50 transition-all duration-200`}
+        } w-full flex justify-between items-center tracking-tighter p-3 font-space-grotesk md:px-16 z-50 transition-all duration-200`}
       >
         <div className="home">
           <p className="text-2xl font-tan-nimbus">
@@ -33,19 +34,19 @@ const Navigation = () => {
         </div>
         <div className="links flex justify-center items-center gap-5 invisible sm:visible text-base">
           <p>
+            <Link smooth to="/">
+              Home
+            </Link>
+          </p>
+          <p>
             <HashLink smooth to="/#about">
               About
             </HashLink>
           </p>
           <p>
-            <HashLink smooth to="/#menu">
+            <Link smooth to="/menu">
               Menu
-            </HashLink>
-          </p>
-          <p>
-            <HashLink smooth to="/#quality">
-              Quality
-            </HashLink>
+            </Link>
           </p>
           <p>
             <NavLink
@@ -113,7 +114,7 @@ const Navigation = () => {
             currentLocation === "/" || currentLocation.includes("/p/")
               ? "bg-black text-white"
               : "bg-white text-black"
-          }`}
+          } drop-shadow-md`}
         >
           <div className="links p-4 font-tan-nimbus">
             <p className="text-2xl">
@@ -144,19 +145,10 @@ const Navigation = () => {
               </NavLink>
             </p>
             <p className="text-2xl">
-              <NavLink to="/quality">
-                {({ isActive }) => (
-                  <span className={isActive ? "text-leaf" : undefined}>
-                    Quality
-                  </span>
-                )}
-              </NavLink>
-            </p>
-            <p className="text-2xl">
               <NavLink to="/cart">
                 {({ isActive }) => (
                   <span className={isActive ? "text-leaf" : undefined}>
-                    Cart
+                    Cart ({cart.length})
                   </span>
                 )}
               </NavLink>
