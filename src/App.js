@@ -11,7 +11,7 @@ function App() {
       <div className="">
         <Statement />
         <Quality />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Menu />
       </div>
     </div>

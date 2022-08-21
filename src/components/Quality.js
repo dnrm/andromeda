@@ -5,7 +5,7 @@ const Quality = ({ topPadding }) => {
   return (
     <div
       className={`${
-        topPadding ? "pt-16" : ""
+        topPadding ? "pt-4" : ""
       } grid grid-cols-1 max-w-7xl mx-auto`}
       id="quality"
     >

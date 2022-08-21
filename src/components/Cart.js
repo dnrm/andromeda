@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useCartContext } from "../context/CartContext";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 
 const Cart = () => {
   const { cart, setCart } = useCartContext();
@@ -63,13 +64,13 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
                     </div>
                     <div className="side w-full">
                       <div className="info text-black font-montserrat flex justify-between items-center w-full gap-2">
-                        <div className="title-and-price flex justify-start items-center gap-2">
-                          <div className="cart-item-name uppercase text-lg md:text-2xl lg:text-3xl font-bold">
+                        <div className="title-and-price flex justify-start items-center gap-4">
+                          <div className="cart-item-name uppercase text-lg md:text-2xl lg:text-3xl font-light tracking-tighter">
                             <Link to={`/p/${item.attributes.Slug}`}>
                               {item.attributes.Title}
                             </Link>
                           </div>
-                          <div className="text-sm inline cart-item-price font-space-grotesk bg-red-300 p-1 rounded-md text-white">
+                          <div className="inline cart-item-price font-space-grotesk bg-bright-yellow text-base md:text-lg p-1 px-2 rounded-md text-white">
                             ${item.attributes.Price}
                           </div>
                         </div>
@@ -93,9 +94,10 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
                           </svg>
                         </div>
                       </div>
-                      <div className="description overflow-x-scroll text-neutral-500 font-montserrat">
-                        {item.attributes.Excerpt || item.attributes.Description.split(/[.!]/)[0]}.
-                      </div>
+                      <ReactMarkdown className="description overflow-x-scroll text-neutral-500 font-sans text-justify">
+                        {item.attributes.Excerpt ||
+                          item.attributes.Description.split(/[.!]/)[0] + "."}
+                      </ReactMarkdown>
                     </div>
                   </div>
                 </div>

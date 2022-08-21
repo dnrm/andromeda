@@ -20,7 +20,7 @@ const Navigation = () => {
     <>
       <div
         className={`${
-          currentLocation === "/" || currentLocation.includes("/p/")
+          currentLocation === "/"
             ? "bg-black text-white"
             : "bg-white text-black"
         } w-full flex justify-between items-center tracking-tighter p-3 font-space-grotesk md:px-16 z-50 transition-all duration-200`}
@@ -28,20 +28,20 @@ const Navigation = () => {
         <div className="home">
           <p className="text-2xl font-tan-nimbus">
             <HashLink smooth to="/#">
-              <img src="/a.png" alt="" className="h-12 rounded-full" />
+              <img
+                src={currentLocation === "/" ? "/a.png" : "/colored-logo.png"}
+                alt=""
+                className="h-12 rounded-full"
+              />
             </HashLink>
           </p>
         </div>
         <div className="links flex justify-center items-center gap-5 invisible sm:visible text-base">
           <p>
-            <Link smooth to="/">
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </p>
           <p>
-            <HashLink smooth to="/#about">
-              About
-            </HashLink>
+            <HashLink to="/#about">About</HashLink>
           </p>
           <p>
             <Link smooth to="/menu">
@@ -111,7 +111,7 @@ const Navigation = () => {
       {navbarOpen && (
         <div
           className={`mobile-navbar ${
-            currentLocation === "/" || currentLocation.includes("/p/")
+            currentLocation === "/"
               ? "bg-black text-white"
               : "bg-white text-black"
           } drop-shadow-md`}

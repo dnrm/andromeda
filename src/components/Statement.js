@@ -4,7 +4,7 @@ const Statement = () => {
   return (
     <div
       id="about"
-      className="super-container image w-screen h-full bg-white p-5 md:p-20 max-w-7xl mx-auto"
+      className="super-container image w-screen h-full bg-white p-5 md:px-20 pt-12 pb-4 max-w-7xl mx-auto"
     >
       <div className="col-span-2 text text-black font-inter pt-3 md:pt-0 flex flex-col justify-between items-start w-full">
         <div className="main z-10">
@@ -12,21 +12,22 @@ const Statement = () => {
             Coffee you can trust
           </h2>
           <hr />
-          <p className="font-montserrat text-justify text-xl md:text-3xl text-neutral-700 tracking-tighter pt-4 pb-2 leading-tight">
+          <p className="font-sans text-justify text-xl text-neutral-600 tracking-tighter pt-4 pb-2">
             At Andromeda we strive to create the perfect cup of coffee, using
             beans from Lavazza, guranteeing a tasty and satisfying experience.
           </p>
           <div className="image py-2">
-            <img src="/cups.jpeg" alt="" />
+            <img
+              src="/roaster.jpeg"
+              className="max-h-96 w-full object-cover"
+              alt=""
+            />
           </div>
-          <p className="font-montserrat text-justify text-xl md:text-3xl text-neutral-700 tracking-tighter py-2 leading-tight">
+          <p className="font-sans text-justify text-xl text-neutral-600 tracking-tighter py-2">
             We also offer seasonal coffee’s such as beans from foreign shops
             when we go on trips. Some past offerings include roasts from San
             Diego, San Antonio, Fredricksburg, and Mexico City.
           </p>
-          <div className="image pt-4">
-            <img src="/roaster.jpeg" alt="" />
-          </div>
         </div>
       </div>
     </div>

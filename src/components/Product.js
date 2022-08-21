@@ -40,19 +40,21 @@ const Products = (props) => {
   };
 
   return (
-    <div className="bg-khaki h-full">
+    <div className="bg-white h-full">
       {product ? (
         <div className="content grid grid-cols-1 xl:grid-cols-2">
           <div className="p-8 pt-12 order-2 xl:order-1">
-            <h1 className="text-4xl flex lg:flex-col justify-start items-center lg:items-start gap-4 md:text-6xl lg:text-8xl text-yellow-500 font-tan-nimbus">
-              {product.attributes.Title}{" "}
-              <p className="font-space-grotesk block pb-4 text-neutral-200 text-base md:text-xl">
-                <span className="bg-maroon p-2 lg:p-3 px-4 lg:px-5 rounded-xl">
+            <div className="heading flex justify-between items-center">
+              <h1 className="text-4xl flex lg:flex-col justify-start items-center lg:items-start gap-4 md:text-6xl lg:text-8xl text-black font-tan-nimbus">
+                {product.attributes.Title}
+              </h1>
+              <p className="font-space-grotesk block pb-4 text-white text-base md:text-xl">
+                <span className="bg-bright-yellow text-lg p-2 lg:p-3 px-3 lg:px-5 rounded-xl">
                   ${product.attributes.Price}
                 </span>
               </p>
-            </h1>
-            <ReactMarkdown className="prose pt-4">
+            </div>
+            <ReactMarkdown className="prose pt-4 text-justify">
               {product.attributes.Description}
             </ReactMarkdown>
             <button
