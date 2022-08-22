@@ -13,7 +13,7 @@ const Quality = ({ topPadding }) => {
         <h1 className="leading-normal bg-neutral-800 moroccan text-bright-yellow text-5xl md:text-6xl md:mx-20 py-16 text-center lg:text-8xl font-tan-nimbus">
           <Link to="/quality">Quality</Link>
         </h1>
-        <p className="text-xl p-5 md:px-20 font-montserrat text-justify text-neutral-600">
+        <p className="text-xl p-5 md:px-20 font-sans text-justify text-neutral-600">
           As a coffee fanatic myself, I strive to deliver customers with the
           best coffee experience they'll ever have. We use high quality coffee
           beans from Lavazza and guarantee a tasty and satisfying experience. We

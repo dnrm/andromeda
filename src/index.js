@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import { CartProvider } from "./context/CartContext";
 import MenuWrapper from "./context/MenuContext";
 import Footer from "./components/Footer";
+import Banner from "./components/Banner";
 
 // * Route Components
 import App from "./App";
@@ -23,6 +24,7 @@ root.render(
   <BrowserRouter>
     <CartProvider>
       <MenuWrapper>
+        <Banner />
         <Navigation />
         <Routes>
           <Route path="/" element={<App />} />
