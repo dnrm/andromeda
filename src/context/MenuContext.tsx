@@ -18,7 +18,7 @@ const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
 export default function MenuWrapper({ children }: Props) {
   const { data, error } = useSWR(
-    strapiUrl + "api/products?populate=*",
+    strapiUrl + "/api/products?populate=*",
     fetcher
   );
 
