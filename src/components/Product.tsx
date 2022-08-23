@@ -4,10 +4,11 @@ import QueryString from "qs";
 import ReactMarkdown from "react-markdown";
 import { useCartContext } from "../context/CartContext";
 import { toast } from "react-hot-toast";
+import ProductType from "../types/Product";
 
-const Products = (props) => {
+const Products = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState<ProductType>({} as ProductType);
   const { cart, setCart } = useCartContext();
 
   useEffect(() => {
@@ -80,9 +81,7 @@ const Products = (props) => {
           </div>
           <div className="image xl:h-[80vh] w-full order-1 xl:order-2">
             <img
-              src={
-                product.attributes.Image.data[0].attributes.formats.large.url
-              }
+              src={product.attributes.Image.data[0].attributes.url}
               className="w-full h-[50vh] xl:h-full object-cover"
               alt=""
             />

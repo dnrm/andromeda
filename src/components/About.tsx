@@ -1,8 +1,8 @@
 import React from "react";
 
-const About = ({ topPadding }) => {
+const About = () => {
   return (
-    <div className={`${topPadding ? "pt-16": 'pt-0'}`}>
+    <div>
       <div className="p-10 bg-snow">
         <h1 className="text-8xl font-tan-nimbus">About Us</h1>
       </div>

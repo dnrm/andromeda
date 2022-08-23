@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Product = ({ title, description, slug, image, price }) => {
+type Props = {
+  title: string;
+  image: string;
+  price: number;
+  slug: string;
+};
+
+const Product = ({ title, slug, image, price }: Props) => {
   return (
     <Link to={"/p/" + slug}>
       <div className="cursor-pointer">

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const Admin = () => {
   useEffect(() => {
-    window.location = 'https://andromeda-strapi.herokuapp.com/admin'
+    window.location.href = "https://andromeda-strapi.herokuapp.com/admin";
   }, []);
 
   return (

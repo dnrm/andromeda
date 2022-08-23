@@ -2,11 +2,13 @@ import Product from "./MenuProduct";
 import { useEffect } from "react";
 import { useMenuContext } from "../context/MenuContext";
 import { Link } from "react-router-dom";
+import ProductType from "../types/Product";
 
 const Menu = () => {
   const menu = useMenuContext();
-  let data;
+  let data: ProductType[] = [];
   let error;
+
   if (menu && menu.data && menu.data.data) {
     data = menu.data.data;
     error = menu.error;
@@ -35,8 +37,7 @@ const Menu = () => {
                 <Product
                   key={id}
                   title={attributes.Title}
-                  description={attributes.Description}
-                  image={attributes.Image.data[0].attributes.formats.medium.url}
+                  image={attributes.Image.data[0].attributes.url}
                   price={attributes.Price}
                   slug={attributes.Slug}
                 />

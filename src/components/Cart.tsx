@@ -3,29 +3,40 @@ import { useCartContext } from "../context/CartContext";
 import { HashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import Product from "../types/Product";
 
 const Cart = () => {
   const { cart, setCart } = useCartContext();
-  const [prices, setPrices] = useState({});
+  const [prices, setPrices] = useState({ subtotal: 0, tip: 0, total: 0 });
 
   useEffect(() => {
-    const subtotal = cart.reduce((acc, item) => acc + item.attributes.Price, 0);
+    const subtotal = cart.reduce(
+      (acc: number, item: any) => acc + item.attributes.Price,
+      0
+    );
     const tip = Math.floor(subtotal * 0.05);
     const total = subtotal + tip;
 
     setPrices({ subtotal, tip, total });
   }, [cart]);
 
-  const createMessage = (cart) => {
+  // ! CREATE MESSAGE
+  const createMessage = (cart: Product[]) => {
     const message = `Hola, me gustaría hacer un pedido de los siguientes productos:
 
 ${cart
-  .map((item) => `${item.attributes.Title} - $${item.attributes.Price}`)
+  .map(
+    (item: Product) => `${item.attributes.Title} - $${item.attributes.Price}`
+  )
   .join("\n")}
 
-Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
+Total: $${cart.reduce(
+      (acc: number, item: Product) => acc + item.attributes.Price,
+      0
+    )}`;
     return message;
   };
+  // ! END CREATE MESSAGE
 
   const placeOrder = () => {
     const message = createMessage(cart);
@@ -34,7 +45,7 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
     );
   };
 
-  const deleteProduct = (index) => {
+  const deleteProduct = (index: number) => {
     const newCart = cart.filter((item, i) => i !== index);
     setCart(newCart);
   };
@@ -49,7 +60,7 @@ Total: $${cart.reduce((acc, item) => acc + item.attributes.Price, 0)}`;
         <div className="min-h-[70vh]">
           <div className="pt-4 cart-contents flex flex-col pb-2 gap-2">
             {cart.length > 0 ? (
-              cart.map((item, index) => (
+              cart.map((item: Product, index: number) => (
                 <div key={index} className="item bg-neutral-100 p-4">
                   <div
                     className="cart-item flex gap-4 justify-start items-start"

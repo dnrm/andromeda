@@ -1,5 +1,3 @@
-import React from "react";
-
 const Testimonial = () => {
   return (
     <div className="testimonial relative flex flex-col justify-center items-center bg-neutral-200">

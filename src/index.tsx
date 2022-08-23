@@ -18,7 +18,9 @@ import Menu from "./components/Menu";
 import Admin from "./components/Admin";
 import Cart from "./components/Cart";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 root.render(
   <BrowserRouter>

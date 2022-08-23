@@ -44,9 +44,7 @@ const Navigation = () => {
             <HashLink to="/#about">About</HashLink>
           </p>
           <p>
-            <Link smooth to="/menu">
-              Menu
-            </Link>
+            <Link to="/menu">Menu</Link>
           </p>
           <p>
             <NavLink

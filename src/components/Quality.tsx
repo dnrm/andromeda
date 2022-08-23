@@ -1,14 +1,8 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-const Quality = ({ topPadding }) => {
+const Quality = () => {
   return (
-    <div
-      className={`${
-        topPadding ? "pt-4" : ""
-      } grid grid-cols-1 max-w-7xl mx-auto`}
-      id="quality"
-    >
+    <div className={`grid grid-cols-1 max-w-7xl mx-auto`} id="quality">
       <div className="bg-snow text">
         <h1 className="leading-normal bg-neutral-800 moroccan text-bright-yellow text-5xl md:text-6xl md:mx-20 py-16 text-center lg:text-8xl font-tan-nimbus">
           <Link to="/quality">Quality</Link>

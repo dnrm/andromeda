@@ -1,9 +1,13 @@
 import { useContext, createContext } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocalStorage } from "usehooks-ts";
 
-const CartContext = createContext();
+const CartContext = createContext({ cart: [], setCart: (value: any) => {} });
 
-export const CartProvider = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+export const CartProvider = ({ children }: Props) => {
   const [cart, setCart] = useLocalStorage("cart", []);
 
   return (
