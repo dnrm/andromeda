@@ -8,7 +8,7 @@ import ProductType from "../types/Product";
 
 const Products = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState<ProductType>({} as ProductType);
+  const [product, setProduct] = useState<ProductType | null>();
   const { cart, setCart } = useCartContext();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Products = () => {
 
   const handleOrder = () => {
     setCart([...cart, product]);
-    toast.success(`1 ${product.attributes.Title} added to cart!`);
+    toast.success(`1 ${product?.attributes.Title} added to cart!`);
   };
 
   return (
