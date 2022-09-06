@@ -30,7 +30,8 @@ const Checkout = () => {
     setName(e.target.value);
   };
 
-  const placeOrder = async () => {
+  const placeOrder = async (e: any) => {
+    e.preventDefault();
     setUploading(true);
     const order: OrderType = {
       customerEmail: email,
@@ -43,9 +44,12 @@ const Checkout = () => {
       const insert = await supabase.from("orders").insert(order);
 
       if (insert.error) {
-        toast.error("Unable to place order :c");
+        toast.error("Unable to place order, try again later :(");
       } else {
         toast.success("Order placed successfully!");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
       }
     } catch (error) {
       console.log(error);
@@ -55,14 +59,21 @@ const Checkout = () => {
   };
 
   return (
-    <div className="min-h-[80vh] bg-white">
-      <div className="w-full h-full px-5 pt-0 md:pt-4 max-w-6xl mx-auto">
+    <div className="min-h-[70vh] bg-white">
+      <form
+        className="w-full h-full px-5 pt-0 md:pt-4 max-w-6xl mx-auto"
+        onSubmit={placeOrder}
+      >
         <h1 className="pt-8 md:pt-16 pb-3 text-4xl md:text-6xl lg:text-8xl font-tan-nimbus text-black">
           Checkout
         </h1>
         <hr />
-        <div className="min-h-[70vh] pt-6">
+        <div className="min-h-[70vh] pt-2">
           <div className="grid grid-cols-1 gap-2">
+            <p className="px-px text-neutral-600 mb-6">
+              Fill in the following information to place your order. We will
+              send a confirmation email to the address you provide.
+            </p>
             <div className="payment-method bg-neutral-100 pt-4 px-4 pb-2 font-montserrat text-base md:text-xl">
               <div className="part-one text-neutral-600 pb-2">
                 <div className="subtotal flex justify-center flex-col items-start">
@@ -70,6 +81,7 @@ const Checkout = () => {
                     Name <span className="text-red-400">*</span>{" "}
                   </p>
                   <input
+                    required
                     onChange={nameChange}
                     value={name}
                     type="text"
@@ -86,6 +98,7 @@ const Checkout = () => {
                     Email <span className="text-red-400">*</span>{" "}
                   </p>
                   <input
+                    required
                     onChange={emailChange}
                     value={email}
                     type="text"
@@ -118,8 +131,8 @@ const Checkout = () => {
                   <span>${prices.tip}</span>
                 </div>
               </div>
-              <div className="part-two pt-2 pb-2 border-t-2 border-neutral-300 text-neutral-700 font-bold">
-                <div className="total flex justify-between items-center">
+              <div className="part-two pt-2 pb-2 border-t-2 border-neutral-300 text-leaf font-bold">
+                <div className="total text-2xl flex justify-between items-center">
                   <p>Total: </p>
                   <span>${prices.total}</span>
                 </div>
@@ -128,7 +141,7 @@ const Checkout = () => {
             <div className="checkout p-4 bg-neutral-100 flex flex-col gap-4">
               <div className="checkout-button">
                 <button
-                  onClick={placeOrder}
+                  type="submit"
                   className="bg-neutral-900 hover:underline flex justify-center items-center hover:bg-black text-base md:text-lg text-white font-montserrat w-full px-4 py-4 font-bold"
                 >
                   {!uploading ? (
@@ -141,7 +154,7 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };
