@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import QueryString from "qs";
 import ReactMarkdown from "react-markdown";
 import { useCartContext } from "../context/CartContext";
 import { toast } from "react-hot-toast";
-import ProductType from "../types/Product";
 import { supabase } from "../utils/supabase";
 
 const Products = () => {
@@ -27,11 +25,11 @@ const Products = () => {
           return;
         }
         setProduct(product.data[0]);
-        console.log(product);
       } catch (e) {
         console.log(e);
       }
     };
+
     fetchProduct();
   }, [id]);
 
@@ -81,7 +79,11 @@ const Products = () => {
           </div>
           <div className="image xl:h-[80vh] w-full order-1 xl:order-2">
             <img
-              src={product.image}
+              src={
+                process.env.REACT_APP_SUPABASE_URL +
+                `/storage/v1/object/public/images/` +
+                product.image
+              }
               className="w-full h-[50vh] xl:h-full object-cover"
               alt=""
             />

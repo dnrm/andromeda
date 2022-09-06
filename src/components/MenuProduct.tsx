@@ -15,7 +15,14 @@ const Product = ({ title, slug, image, price }: Props) => {
         <div
           className={`w-full h-[30rem]  image flex justify-center items-center`}
         >
-          <img src={image} className="h-full object-cover w-full" alt="" />
+          <img
+            src={
+              `https://jmzinesoueyswqxzpykd.supabase.co/storage/v1/object/public/images/` +
+              image
+            }
+            className="h-full object-cover w-full"
+            alt=""
+          />
         </div>
         <div className="product-info py-2 md:py-2 flex justify-between items-center">
           <h1 className="text-lg sm:text-xl md:text-2xl hover:scale-110 transition-all font-normal duration-200 font-montserrat uppercase tracking-tighter text-neutral-600 hover:underline">
