@@ -17,6 +17,7 @@ import About from "./components/About";
 import Menu from "./components/Menu";
 import Admin from "./components/Admin";
 import Cart from "./components/Cart";
+import Checkout from "./components/Checkout";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -34,6 +35,7 @@ root.render(
           <Route path="/menu" element={<Menu />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/p/:id" element={<Product />} />
         </Routes>
         <Footer />

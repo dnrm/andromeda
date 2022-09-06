@@ -61,7 +61,11 @@ Total: $${cart.reduce((acc: number, item: Product) => acc + item.price, 0)}`;
                   >
                     <div className="image h-14 md:h-20 w-14 md:w-20">
                       <img
-                        src={item.image}
+                        src={
+                          process.env.REACT_APP_SUPABASE_URL +
+                          `/storage/v1/object/public/images/` +
+                          item.image
+                        }
                         className={"object-cover h-full w-full"}
                         alt=""
                       />
@@ -140,12 +144,12 @@ Total: $${cart.reduce((acc: number, item: Product) => acc + item.price, 0)}`;
               </div>
               <div className="checkout p-4 bg-neutral-100 mt-2 mb-2 flex flex-col gap-4">
                 <div className="checkout-button">
-                  <button
-                    onClick={placeOrder}
-                    className="bg-neutral-900 hover:underline hover:bg-black text-base md:text-lg text-white font-montserrat w-full px-4 py-4 font-bold"
+                  <Link
+                    to="/checkout"
+                    className="bg-neutral-900 hover:underline flex justify-center items-center hover:bg-black text-base md:text-lg text-white font-montserrat w-full px-4 py-4 font-bold"
                   >
                     Checkout
-                  </button>
+                  </Link>
                 </div>
               </div>
               <div className="to-menu flex justify-center items-center text-xs md:text-sm hover:underline text-neutral-600 pb-8">
