@@ -23,11 +23,11 @@ const Menu = () => {
         </h1>
       </div>
       <hr />
-      <div className="products py-5">
+      <div className="products py-5 min-h-[50vh]">
         {menu && menu.data ? (
           <div className="products grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 md:gap-8">
             {menu &&
-              menu.data.map(({ description, name, image, price, slug, id }) => (
+              menu.data.map(({ name, image, price, slug, id }) => (
                 <Product
                   key={id}
                   title={name}
@@ -37,9 +37,13 @@ const Menu = () => {
                 />
               ))}
           </div>
-        ) : error ? (
-          <div className="error">{error}</div>
-        ) : null}
+        ) : (
+          <div className="loading">
+            <h1 className="text-4xl md:text-7xl xl:text-7xl text-bright-yellow font-tan-nimbus">
+              Loading...
+            </h1>
+          </div>
+        )}
       </div>
     </div>
   );
