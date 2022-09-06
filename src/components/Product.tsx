@@ -5,10 +5,11 @@ import ReactMarkdown from "react-markdown";
 import { useCartContext } from "../context/CartContext";
 import { toast } from "react-hot-toast";
 import ProductType from "../types/Product";
+import { supabase } from "../utils/supabase";
 
 const Products = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState<ProductType | null>();
+  const [product, setProduct] = useState<any>();
   const { cart, setCart } = useCartContext();
 
   useEffect(() => {
@@ -17,27 +18,26 @@ const Products = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const query = QueryString.stringify({
-        populate: "*",
-        filters: {
-          slug: {
-            $eq: id,
-          },
-        },
-      });
-
-      const request = await fetch(
-        `https://andromeda-strapi.herokuapp.com/api/products?${query}`
-      );
-      const data = await request.json();
-      setProduct(data.data[0]);
+      try {
+        const product = await supabase
+          .from("products")
+          .select("*")
+          .eq("slug", id);
+        if (!product.data) {
+          return;
+        }
+        setProduct(product.data[0]);
+        console.log(product);
+      } catch (e) {
+        console.log(e);
+      }
     };
     fetchProduct();
   }, [id]);
 
   const handleOrder = () => {
     setCart([...cart, product]);
-    toast.success(`1 ${product?.attributes.Title} added to cart!`);
+    toast.success(`1 ${product.name} added to cart!`);
   };
 
   return (
@@ -47,16 +47,16 @@ const Products = () => {
           <div className="p-8 pt-12 order-2 xl:order-1">
             <div className="heading flex justify-between items-center">
               <h1 className="text-4xl flex lg:flex-col justify-start items-center lg:items-start gap-4 md:text-6xl lg:text-8xl text-black font-tan-nimbus">
-                {product.attributes.Title}
+                {product.name}
               </h1>
               <p className="font-space-grotesk block pb-4 text-white text-base md:text-xl">
                 <span className="bg-bright-yellow text-lg p-2 lg:p-3 px-3 lg:px-5 rounded-xl">
-                  ${product.attributes.Price}
+                  ${product.price}
                 </span>
               </p>
             </div>
             <ReactMarkdown className="prose pt-4 text-justify">
-              {product.attributes.Description}
+              {product.description}
             </ReactMarkdown>
             <button
               onClick={handleOrder}
@@ -81,7 +81,7 @@ const Products = () => {
           </div>
           <div className="image xl:h-[80vh] w-full order-1 xl:order-2">
             <img
-              src={product.attributes.Image.data[0].attributes.url}
+              src={product.image}
               className="w-full h-[50vh] xl:h-full object-cover"
               alt=""
             />

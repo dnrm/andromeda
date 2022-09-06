@@ -6,13 +6,7 @@ import ProductType from "../types/Product";
 
 const Menu = () => {
   const menu = useMenuContext();
-  let data: ProductType[] = [];
   let error;
-
-  if (menu && menu.data && menu.data.data) {
-    data = menu.data.data;
-    error = menu.error;
-  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,16 +24,16 @@ const Menu = () => {
       </div>
       <hr />
       <div className="products py-5">
-        {data ? (
+        {menu && menu.data ? (
           <div className="products grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-4 md:gap-8">
-            {data &&
-              data.map(({ attributes, id }) => (
+            {menu &&
+              menu.data.map(({ description, name, image, price, slug, id }) => (
                 <Product
                   key={id}
-                  title={attributes.Title}
-                  image={attributes.Image.data[0].attributes.url}
-                  price={attributes.Price}
-                  slug={attributes.Slug}
+                  title={name}
+                  image={image}
+                  price={price}
+                  slug={slug}
                 />
               ))}
           </div>

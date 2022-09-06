@@ -1,11 +1,9 @@
-import useSWR from "swr";
 import ProductType from "../types/Product";
-import { useContext } from "react";
-import { createContext } from "react";
-import { strapiUrl } from "../utils/strapiUrl";
+import { supabase } from "../utils/supabase";
+import { useState, useContext, createContext, useEffect } from "react";
 
 interface MenuContextInterface {
-  data: { data: ProductType[] };
+  data: ProductType[];
   error: any;
 }
 
@@ -14,16 +12,25 @@ type Props = {
 };
 
 export const MenuContext = createContext<MenuContextInterface | null>(null);
-const fetcher = (url: any) => fetch(url).then((res) => res.json());
 
 export default function MenuWrapper({ children }: Props) {
-  const { data, error } = useSWR(
-    strapiUrl + "/api/products?populate=*",
-    fetcher
-  );
+  const [products, setProducts] = useState<any>([]);
+  const [error, setError] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const products = await supabase.from("products").select("*");
+        setProducts(products.data);
+      } catch (e) {
+        setError(e);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
-    <MenuContext.Provider value={{ data, error }}>
+    <MenuContext.Provider value={{ data: products, error }}>
       {children}
     </MenuContext.Provider>
   );

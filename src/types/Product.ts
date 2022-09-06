@@ -1,19 +1,10 @@
 export default interface ProductType {
-  id: number;
-  attributes: {
-    Title: string;
-    Description: string;
-    Price: number;
-    Excerpt: string;
-    Slug: string;
-    Image: {
-      data: [
-        {
-          attributes: {
-            url: string;
-          };
-        }
-      ];
-    };
-  };
+  created_at: string;
+  description: string;
+  excerpt: string;
+  name: string;
+  id: string;
+  image: string;
+  price: number;
+  slug: string;
 }

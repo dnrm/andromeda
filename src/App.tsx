@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import Hero from "./components/Hero";
-import Statement from "./components/Statement";
 import Menu from "./components/Menu";
 import Quality from "./components/Quality";
+import Statement from "./components/Statement";
 import Announcement from "./components/Announcement";
 
 function App() {

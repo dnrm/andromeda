@@ -11,7 +11,7 @@ const Cart = () => {
 
   useEffect(() => {
     const subtotal = cart.reduce(
-      (acc: number, item: any) => acc + item.attributes.Price,
+      (acc: number, item: any) => acc + item.price,
       0
     );
     const tip = Math.floor(subtotal * 0.05);
@@ -24,16 +24,9 @@ const Cart = () => {
   const createMessage = (cart: Product[]) => {
     const message = `Hola, me gustaría hacer un pedido de los siguientes productos:
 
-${cart
-  .map(
-    (item: Product) => `${item.attributes.Title} - $${item.attributes.Price}`
-  )
-  .join("\n")}
+${cart.map((item: Product) => `${item.name} - $${item.price}`).join("\n")}
 
-Total: $${cart.reduce(
-      (acc: number, item: Product) => acc + item.attributes.Price,
-      0
-    )}`;
+Total: $${cart.reduce((acc: number, item: Product) => acc + item.price, 0)}`;
     return message;
   };
   // ! END CREATE MESSAGE
@@ -68,7 +61,7 @@ Total: $${cart.reduce(
                   >
                     <div className="image h-14 md:h-20 w-14 md:w-20">
                       <img
-                        src={item.attributes.Image.data[0].attributes.url}
+                        src={item.image}
                         className={"object-cover h-full w-full"}
                         alt=""
                       />
@@ -77,12 +70,10 @@ Total: $${cart.reduce(
                       <div className="info text-black font-montserrat flex justify-between items-center w-full gap-2">
                         <div className="title-and-price flex justify-start items-center gap-4">
                           <div className="cart-item-name uppercase text-lg md:text-2xl lg:text-3xl font-light tracking-tighter">
-                            <Link to={`/p/${item.attributes.Slug}`}>
-                              {item.attributes.Title}
-                            </Link>
+                            <Link to={`/p/${item.slug}`}>{item.name}</Link>
                           </div>
                           <div className="inline cart-item-price font-space-grotesk bg-bright-yellow text-base md:text-lg p-1 px-2 rounded-md text-white">
-                            ${item.attributes.Price}
+                            ${item.price}
                           </div>
                         </div>
                         <div
@@ -106,8 +97,8 @@ Total: $${cart.reduce(
                         </div>
                       </div>
                       <ReactMarkdown className="description overflow-x-scroll text-neutral-500 font-sans text-justify">
-                        {item.attributes.Excerpt ||
-                          item.attributes.Description.split(/[.!]/)[0] + "."}
+                        {item.excerpt ||
+                          item.description.split(/[.!]/)[0] + "."}
                       </ReactMarkdown>
                     </div>
                   </div>
