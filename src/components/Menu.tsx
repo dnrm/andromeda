@@ -2,11 +2,9 @@ import Product from "./MenuProduct";
 import { useEffect } from "react";
 import { useMenuContext } from "../context/MenuContext";
 import { Link } from "react-router-dom";
-import ProductType from "../types/Product";
 
 const Menu = () => {
   const menu = useMenuContext();
-  let error;
 
   useEffect(() => {
     window.scrollTo(0, 0);
