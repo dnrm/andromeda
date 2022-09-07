@@ -10,11 +10,11 @@ const Statement = () => {
             Coffee you can trust
           </h2>
           <hr />
-          <p className="font-sans text-justify text-xl text-neutral-600 tracking-tighter pt-4 pb-2">
+          <p className="font-sans text-justify text-lg text-neutral-600 tracking-tight pt-4 pb-2">
             At Andromeda we strive to create the perfect cup of coffee, using
             beans from Lavazza, guranteeing a tasty and satisfying experience.
           </p>
-          <p className="font-sans text-justify text-xl text-neutral-600 tracking-tighter py-2">
+          <p className="font-sans text-justify text-lg text-neutral-600 tracking-tight py-2">
             We also offer seasonal coffee’s such as beans from foreign shops
             when we go on trips. Some past offerings include roasts from San
             Diego, San Antonio, Fredricksburg, and Mexico City.

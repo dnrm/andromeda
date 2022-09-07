@@ -9,6 +9,7 @@ const Products = () => {
   const { id } = useParams();
   const [product, setProduct] = useState<any>();
   const { cart, setCart } = useCartContext();
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -53,7 +54,7 @@ const Products = () => {
                 </span>
               </p>
             </div>
-            <ReactMarkdown className="prose pt-4 text-justify">
+            <ReactMarkdown className="prose pt-6 text-lg text-justify">
               {product.description}
             </ReactMarkdown>
             <button
