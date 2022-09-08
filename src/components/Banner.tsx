@@ -1,28 +1,43 @@
-import React, { useState } from "react";
-import useSWR from "swr";
-import { strapiUrl } from "../utils/strapiUrl";
-
-// @ts-ignore
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { supabase } from "../utils/supabase";
+import { BannerType } from "../types/Banner";
+import React, { useState, useEffect } from "react";
 
 const Banner = () => {
   const [showBanner, setShowBanner] = useState(true);
+  const [banner, setBanner] = useState<BannerType>();
 
-  const { data, error } = useSWR(strapiUrl + "/api/banner", fetcher);
+  useEffect(() => {
+    const fetchBanner = async () => {
+      const banner = await supabase.from("banner").select("*");
+      const data: BannerType = banner.data?.[0];
+
+      if (!banner) {
+        setShowBanner(false);
+        return;
+      }
+
+      if (data) {
+        setBanner(data);
+      }
+
+      if (data.published === false) {
+        setShowBanner(false);
+      }
+    };
+    fetchBanner();
+  }, []);
 
   const closeBanner = () => {
     setShowBanner(false);
     localStorage.setItem("banner-is-closed", "true");
   };
 
-  console.log(data);
-
   return (
     <>
-      {showBanner && !error && data && data.data ? (
+      {showBanner && banner ? (
         <div className="banner bg-neutral-800 text-white font-sans p-2 flex justify-between items-center h-12 w-full">
           <span></span>
-          <p>{data.data.attributes.Content}</p>
+          <p>{banner.content}</p>
           <div className="close" onClick={closeBanner}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
