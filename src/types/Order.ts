@@ -5,4 +5,5 @@ export interface OrderType {
   products: {};
   deliveryDate: Date;
   total: number;
+  paymentType?: string;
 }

@@ -6,8 +6,9 @@ import MoonLoader from "react-spinners/MoonLoader";
 import { useCartContext } from "../context/CartContext";
 
 const Checkout = () => {
-  const { cart } = useCartContext();
+  const { cart, setCart } = useCartContext();
   const [email, setEmail] = useState("");
+  const [paymentType, setPaymentType] = useState("");
   const [name, setName] = useState("");
   const [uploading, setUploading] = useState(false);
   const [prices, setPrices] = useState({ subtotal: 0, tip: 0, total: 0 });
@@ -36,6 +37,7 @@ const Checkout = () => {
     const order: OrderType = {
       customerEmail: email,
       deliveryDate: new Date(),
+      paymentType: paymentType || "cash",
       products: cart,
       total: prices.subtotal,
     };
@@ -47,6 +49,7 @@ const Checkout = () => {
         toast.error("Unable to place order, try again later :(");
       } else {
         toast.success("Order placed successfully!");
+        setCart([]);
         setTimeout(() => {
           window.location.href = "/";
         }, 1000);
@@ -112,10 +115,18 @@ const Checkout = () => {
               <div className="part-one text-neutral-600 pb-2">
                 <div className="subtotal flex justify-between items-center">
                   <p>Payment method: </p>
-                  <select name="payment-method" id="payment-method">
+                  <select
+                    name="payment-method"
+                    id="payment-method"
+                    onChange={(e) => setPaymentType(e.target.value)}
+                  >
                     <option value="cash">Cash</option>
-                    <option value="credit-card">Credit card</option>
-                    <option value="promo-code">Promo code</option>
+                    <option value="credit-card" disabled>
+                      Credit card
+                    </option>
+                    <option value="promo-code">
+                      Promo code
+                    </option>
                   </select>
                 </div>
               </div>

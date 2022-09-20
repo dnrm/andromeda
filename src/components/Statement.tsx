@@ -6,7 +6,7 @@ const Statement = () => {
     >
       <div className="col-span-2 text text-black font-inter md:pt-0 flex flex-col justify-between items-start w-full">
         <div className="main z-10">
-          <h2 className="pb-4 coffee-trust text-4xl md:text-7xl font-tan-nimbus text-black font-bold tracking-tight leading-tighter">
+          <h2 className="pb-4 coffee-trust text-4xl md:text-7xl font-tan-nimbus text-leaf font-bold tracking-tight leading-tighter">
             Coffee you can trust
           </h2>
           <hr />

@@ -4,7 +4,7 @@ const Quality = () => {
   return (
     <div className={`grid grid-cols-1 max-w-7xl mx-auto`} id="quality">
       <div className="bg-snow text">
-        <h1 className="leading-normal bg-neutral-800 moroccan text-bright-yellow text-5xl md:text-6xl md:mx-20 py-16 text-center lg:text-8xl font-tan-nimbus">
+        <h1 className="leading-normal text-black-yellow text-5xl md:text-6xl md:mx-20 mx-5 pt-8 font-tan-nimbus tracking-tighter">
           <Link to="/quality">Quality</Link>
         </h1>
         <p className="text-lg p-5 md:px-20 font-sans text-justify tracking-tight text-neutral-600">
